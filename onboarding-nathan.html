@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onboarding Nathan — Propre ou Rien Auto</title>
+  <meta name="description" content="Tableau de bord privé Nathan Bros — checklist lancement PORA." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#005EDF" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <style>
+    /* Custom styles pour l'onboarding */
+    body { background: var(--gray-50); }
+    .onboard-header {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--blue) 100%);
+      color: var(--white); padding: 48px 0 40px; position: relative; overflow: hidden;
+    }
+    .onboard-header h1 { color: var(--white); font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .onboard-header .lead { color: rgba(255,255,255,.9); font-size: 1.1rem; max-width: 620px; margin-top: 8px; }
+
+    .progress-bar {
+      background: rgba(255,255,255,.15); height: 12px; border-radius: 100px;
+      overflow: hidden; margin-top: 24px; max-width: 620px;
+    }
+    .progress-fill {
+      height: 100%; background: #4ade80; width: 0%;
+      transition: width .4s ease; border-radius: 100px;
+    }
+    .progress-text { margin-top: 8px; color: rgba(255,255,255,.9); font-size: .9rem; }
+
+    .tabs {
+      display: flex; gap: 4px; margin: 32px 0 24px;
+      border-bottom: 2px solid var(--gray-200);
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .tab {
+      padding: 14px 20px; border: 0; background: transparent;
+      font-family: inherit; font-size: .95rem; font-weight: 600;
+      color: var(--gray-500); cursor: pointer; white-space: nowrap;
+      border-bottom: 3px solid transparent; margin-bottom: -2px;
+      transition: all var(--transition);
+    }
+    .tab:hover { color: var(--navy-deep); }
+    .tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .tab .badge {
+      display: inline-block; background: var(--gray-200); color: var(--gray-700);
+      border-radius: 100px; padding: 2px 8px; font-size: .75rem; margin-left: 6px;
+    }
+    .tab.active .badge { background: var(--blue); color: white; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn .3s; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;}}
+
+    .task {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 16px 18px;
+      margin-bottom: 12px; display: flex; gap: 14px;
+      transition: all var(--transition);
+    }
+    .task:hover { border-color: var(--blue); }
+    .task.done { opacity: 0.55; background: var(--gray-50); }
+    .task.done .task-title { text-decoration: line-through; }
+
+    .task-check {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px;
+      border: 2px solid var(--gray-200); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition); background: var(--white); margin-top: 2px;
+    }
+    .task.done .task-check {
+      background: var(--blue); border-color: var(--blue); color: white;
+    }
+    .task-check svg { width: 16px; height: 16px; opacity: 0; transition: opacity var(--transition); }
+    .task.done .task-check svg { opacity: 1; }
+
+    .task-content { flex: 1; }
+    .task-title {
+      font-weight: 600; color: var(--navy-deep); margin-bottom: 4px;
+      font-size: 1rem;
+    }
+    .task-desc { color: var(--gray-700); font-size: .9rem; line-height: 1.5; }
+    .task-meta {
+      display: flex; gap: 12px; margin-top: 8px; align-items: center;
+      font-size: .8rem; color: var(--gray-500);
+    }
+    .task-priority {
+      padding: 2px 10px; border-radius: 100px;
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+    }
+    .priority-urgent { background: #fef2f2; color: #991b1b; }
+    .priority-cette-semaine { background: #fff7ed; color: #9a3412; }
+    .priority-plus-tard { background: #eff6ff; color: #1e40af; }
+
+    .task-link {
+      color: var(--blue); font-size: .85rem; font-weight: 600;
+      text-decoration: none; margin-top: 4px; display: inline-block;
+    }
+    .task-link:hover { text-decoration: underline; }
+
+    .info-box {
+      background: #eff6ff; border-left: 4px solid var(--blue);
+      padding: 16px 20px; border-radius: 8px; margin-bottom: 24px;
+    }
+    .info-box h3 { color: var(--navy-deep); font-size: 1rem; margin-bottom: 6px; }
+    .info-box p { color: var(--gray-700); font-size: .95rem; margin-bottom: 4px; }
+
+    .post-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+    }
+    .post-card h3 { color: var(--navy-deep); font-size: 1.05rem; margin-bottom: 12px; }
+    .post-text {
+      background: var(--gray-50); border-radius: 8px; padding: 14px;
+      font-size: .9rem; white-space: pre-wrap; font-family: inherit;
+      color: var(--gray-900); border: 1px dashed var(--gray-200);
+    }
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue); color: white; padding: 8px 14px;
+      border-radius: 8px; font-size: .85rem; font-weight: 600;
+      border: 0; cursor: pointer; margin-top: 10px;
+      transition: all var(--transition);
+    }
+    .copy-btn:hover { background: var(--blue-dark); }
+    .copy-btn.copied { background: var(--success); }
+
+    .btn-reset {
+      background: transparent; border: 1px solid var(--gray-200);
+      color: var(--gray-500); padding: 10px 20px; border-radius: 8px;
+      font-size: .85rem; cursor: pointer; margin-top: 16px;
+      font-family: inherit;
+    }
+    .btn-reset:hover { color: var(--gray-700); border-color: var(--gray-500); }
+  </style>
+</head>
+<body>
+
+<header class="onboard-header">
+  <div class="container">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+      <img src="/assets/logo/logo-dark.png" alt="PORA" style="height: 44px; width: auto;" />
+      <span style="padding: 4px 12px; background: rgba(255,255,255,.12); border-radius: 100px; font-size: .8rem; letter-spacing: .05em; text-transform: uppercase;">Espace privé · Nathan</span>
+    </div>
+    <h1>Salut Nathan 👋</h1>
+    <p class="lead">Voici ton tableau de bord de lancement. Coche au fur et à mesure, tes progrès sont sauvegardés sur ton téléphone/ordi. Tu peux y revenir à tout moment.</p>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-text"><span id="progress-text">0 / 0 tâches cochées</span></div>
+  </div>
+</header>
+
+<main class="container" style="padding-bottom: 80px;">
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-panel="urgent">🔴 Urgent <span class="badge" id="count-urgent">0</span></button>
+    <button class="tab" data-panel="semaine">🟠 Cette semaine <span class="badge" id="count-semaine">0</span></button>
+    <button class="tab" data-panel="mois">🔵 Dans le mois <span class="badge" id="count-mois">0</span></button>
+    <button class="tab" data-panel="posts">📱 Posts Insta <span class="badge">9</span></button>
+    <button class="tab" data-panel="infos">📇 Infos fournies</button>
+  </nav>
+
+  <!-- PANEL URGENT -->
+  <section class="tab-panel active" id="panel-urgent">
+    <div class="info-box">
+      <h3>🔴 À faire en priorité (avant mise en ligne)</h3>
+      <p>Ces 6 points bloquent la mise en ligne sur ton vrai domaine. Sans ça, on reste en staging.</p>
+    </div>
+
+    <div class="task" data-id="siret">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Créer ta micro-entreprise</div>
+        <div class="task-desc">Immatriculation via le guichet unique INPI — gratuit, 15 min en ligne. Tu reçois ton SIRET sous 2-4 semaines.</div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent</span><span>⏱ ~15 min de démarche</span></div>
+        <a href="https://formalites.entreprises.gouv.fr" target="_blank" rel="noopener" class="task-link">→ formalites.entreprises.gouv.fr</a>
+      </div>
+    </div>
+
+    <div class="task" data-id="rcpro">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Souscrire une assurance RC Pro</div>
+        <div class="task-desc">Protection en cas de dommage sur véhicule client. Compter 15-25 €/mois. Prends-en une spécialisée auto (Hiscox, AssurUp, Olino).</div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent</span><span>⏱ 30 min</span><span>💰 ~20 €/mois</span></div>
+        <a href="https://www.assurup.com/assurance-auto-detailing" target="_blank" rel="noopener" class="task-link">→ Comparer</a>
+      </div>
+    </div>
+
+    <div class="task" data-id="domaine">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Commander le domaine + hosting Hostinger</div>
+        <div class="task-desc">Arnaud s'en occupe avec toi. Domaine `propreourienauto.fr` + hébergement Business Hostinger. ~50 €/an total.</div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent</span><span>⏱ 15 min</span><span>💰 ~50 €/an</span></div>
+        <a href="https://hostinger.fr" target="_blank" rel="noopener" class="task-link">→ Hostinger</a>
+      </div>
+    </div>
+
+    <div class="task" data-id="email">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Créer l'email pro contact@propreourienauto.fr</div>
+        <div class="task-desc">Inclus gratuitement avec l'hébergement Hostinger Business. Configuration depuis le hPanel.</div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent</span><span>⏱ 5 min</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="banque">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Ouvrir un compte bancaire pro (Qonto / Shine / Boursorama Pro)</div>
+        <div class="task-desc">Obligatoire pour les encaissements pros. Qonto : ~10 €/mois. Boursorama Pro : gratuit pour les micros-entrepreneurs.</div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent</span><span>⏱ 30 min</span></div>
+        <a href="https://pro.boursobank.com" target="_blank" rel="noopener" class="task-link">→ Boursorama Pro (gratuit)</a>
+      </div>
+    </div>
+
+    <div class="task" data-id="gbp">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Créer la fiche Google Business Profile</div>
+        <div class="task-desc">C'est le levier SEO #1 pour trouver des clients locaux. Catégorie : "Service de nettoyage de voitures". Adresse : Cournonsec, rayon 30 km.</div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent</span><span>⏱ 20 min</span></div>
+        <a href="https://business.google.com" target="_blank" rel="noopener" class="task-link">→ Google Business Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL SEMAINE -->
+  <section class="tab-panel" id="panel-semaine">
+    <div class="info-box">
+      <h3>🟠 À caler cette semaine</h3>
+      <p>Tâches de setup qui accélèrent le démarrage. Moins bloquantes que les urgents, mais à faire vite.</p>
+    </div>
+
+    <div class="task" data-id="insta">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Créer le compte Instagram pro @propreourienauto</div>
+        <div class="task-desc">Utilise l'avatar PR blanc sur fond bleu fourni par Arnaud. Bio : voir l'onglet "Posts Insta".</div>
+        <div class="task-meta"><span class="task-priority priority-cette-semaine">Cette semaine</span><span>⏱ 15 min</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="fb">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Créer la page Facebook "Propre ou Rien Auto"</div>
+        <div class="task-desc">Lie-la à ta fiche Google Business pour le SEO. Couverture FB prête (1640×624).</div>
+        <div class="task-meta"><span class="task-priority priority-cette-semaine">Cette semaine</span><span>⏱ 10 min</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="whatsapp">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Activer WhatsApp Business (gratuit)</div>
+        <div class="task-desc">Sur le 07 61 10 97 50. Tu auras les réponses automatiques, les étiquettes clients, et les statistiques. Indispensable quand on carbure à WhatsApp.</div>
+        <div class="task-meta"><span class="task-priority priority-cette-semaine">Cette semaine</span><span>⏱ 10 min</span></div>
+        <a href="https://www.whatsapp.com/business" target="_blank" rel="noopener" class="task-link">→ WhatsApp Business</a>
+      </div>
+    </div>
+
+    <div class="task" data-id="prospects">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Contacter 5 premiers prospects (famille + 3 artisans)</div>
+        <div class="task-desc">Tu m'as parlé de 2-3 artisans que tu peux contacter. Ajoute 2 amis/famille qui seraient OK pour être "clients-témoins" contre une remise.</div>
+        <div class="task-meta"><span class="task-priority priority-cette-semaine">Cette semaine</span><span>⏱ 1 h</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="formspree">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Créer le compte Formspree (backup formulaire site)</div>
+        <div class="task-desc">Gratuit jusqu'à 50 soumissions/mois — largement suffisant. Arnaud intégrera l'ID dans le site.</div>
+        <div class="task-meta"><span class="task-priority priority-cette-semaine">Cette semaine</span><span>⏱ 5 min</span></div>
+        <a href="https://formspree.io" target="_blank" rel="noopener" class="task-link">→ formspree.io</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL MOIS -->
+  <section class="tab-panel" id="panel-mois">
+    <div class="info-box">
+      <h3>🔵 Le premier mois d'activité</h3>
+      <p>Une fois le site en ligne et les premiers clients en cours, c'est ça qu'on déroule.</p>
+    </div>
+
+    <div class="task" data-id="photos-clients">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Photos avant/après sur les 5 premiers clients</div>
+        <div class="task-desc">Accord signé des clients (texte préparé par Arnaud). L'idéal : siège avant/après, coffre, moquette.</div>
+        <div class="task-meta"><span class="task-priority priority-plus-tard">Premier mois</span><span>⏱ 5 min par client</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="avis">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Demander 3 avis Google</div>
+        <div class="task-desc">Après chaque prestation, envoie le lien de ta fiche GBP par WhatsApp au client. Objectif 3 avis 5★ au premier mois.</div>
+        <div class="task-meta"><span class="task-priority priority-plus-tard">Premier mois</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="posts-publies">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Publier les 9 posts de lancement (3/semaine sur 3 semaines)</div>
+        <div class="task-desc">Visuels + légendes prêts dans l'onglet "Posts Insta". Rythme : Lun/Mer/Ven.</div>
+        <div class="task-meta"><span class="task-priority priority-plus-tard">Premier mois</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="cartes">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Commander des cartes de visite + flyers A5</div>
+        <div class="task-desc">Arnaud design sur Illustrator + commande sur Pixartprinting. Compter ~40 € pour 250 cartes + 500 flyers.</div>
+        <div class="task-meta"><span class="task-priority priority-plus-tard">Premier mois</span><span>💰 ~40 €</span></div>
+      </div>
+    </div>
+
+    <div class="task" data-id="covering">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">Covering Seat Ibiza (léger : juste logo + tel + site)</div>
+        <div class="task-desc">Design simple et pro. Un poseur local à trouver. Compter ~150-200 € pour un kit léger deux portes + hayon.</div>
+        <div class="task-meta"><span class="task-priority priority-plus-tard">Premier mois</span><span>💰 ~200 €</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL POSTS INSTA -->
+  <section class="tab-panel" id="panel-posts">
+    <div class="info-box">
+      <h3>📱 9 posts Instagram prêts à publier</h3>
+      <p>Copie la légende, utilise le visuel correspondant (dossier Drive/Photos partagé par Arnaud), publie dans l'ordre suggéré (3/semaine sur 3 semaines).</p>
+    </div>
+
+    <!-- Bio Instagram -->
+    <div class="post-card">
+      <h3>📇 Bio Instagram (à coller dans ton profil)</h3>
+      <pre class="post-text">🚗 Nettoyage auto intérieur à domicile
+📍 Cournonsec · Montpellier · Hérault
+✓ Devis photo WhatsApp en 1h
+✓ À partir de 60€ · Satisfait ou on refait
+👇 WhatsApp direct</pre>
+      <button class="copy-btn" data-copy-target="bio">📋 Copier la bio</button>
+    </div>
+
+    <!-- Post 01 -->
+    <div class="post-card">
+      <h3>Post 01 — Annonce ouverture (Semaine 1 · Lundi)</h3>
+      <pre class="post-text">Nouveau sur Montpellier et l'Hérault : Propre ou Rien Auto. 🚗✨
+
+Nettoyage auto intérieur, pro, à domicile.
+Pour tous ceux qui veulent une voiture propre dedans sans y passer 1/2 journée.
+
+Particuliers. Artisans. Entreprises.
+Prix clairs, travail sérieux, zéro bla-bla.
+
+📍 Cournonsec · Montpellier · Hérault
+💬 Envoie 3 photos WhatsApp au 07 61 10 97 50, t'as un devis en 1h.
+
+#Montpellier #Hérault #Cournonsec #NettoyageAuto #PORAauto</pre>
+      <button class="copy-btn" data-copy-target="p1">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 02 -->
+    <div class="post-card">
+      <h3>Post 02 — Offre 3 voitures (Semaine 1 · Vendredi)</h3>
+      <pre class="post-text">🎁 Offre de lancement.
+
+3 voitures d'un coup = -20€.
+À la même adresse, le même jour.
+
+Parfait pour :
+→ La famille (3 caisses = -20€ sur le total)
+→ Les collègues (on se regroupe sur le parking)
+→ Les voisins (vous organisez entre vous)
+→ Les petites PME
+
+À partir de 60€ la voiture. Intérieur only.
+
+💬 WhatsApp 07 61 10 97 50 — envoie 3 photos.
+
+#OffreLancement #NettoyageAuto #Montpellier #PropreOuRienAuto</pre>
+      <button class="copy-btn" data-copy-target="p2">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 03 -->
+    <div class="post-card">
+      <h3>Post 03 — Avant/Après #1 (Semaine 2 · Lundi)</h3>
+      <pre class="post-text">AVANT. APRÈS.
+
+2 heures de travail. Zéro magie.
+Shampouineuse + méthode + patience.
+
+Sièges taches café + miettes + poussière → remis à niveau.
+
+Ton intérieur a vu passer la famille, les chantiers, les longs trajets ?
+💬 DM ou WhatsApp 07 61 10 97 50.
+
+#AvantApres #NettoyageAuto #Montpellier</pre>
+      <button class="copy-btn" data-copy-target="p3">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 04 -->
+    <div class="post-card">
+      <h3>Post 04 — Tunnel vs Pro (Semaine 2 · Mercredi)</h3>
+      <pre class="post-text">Lavage tunnel à 15€ vs nettoyage pro à domicile.
+Spoiler : c'est pas la même chose.
+
+Tunnel :
+❌ Brosses qui micro-rayent
+❌ Intérieur ? Oublie.
+❌ Produits agressifs uniformes
+❌ 10 min chrono
+
+Moi, chez toi :
+✅ Shampouinage sièges tissu
+✅ Extraction moquette
+✅ Produits adaptés à ton véhicule
+✅ 1h à 4h de boulot sérieux
+
+On vient à toi — ou tu viens chez nous. À toi de voir.
+
+📍 Cournonsec · Montpellier · Hérault
+💬 07 61 10 97 50 (WhatsApp)
+
+#LavageAuto #ConseilAuto #Montpellier</pre>
+      <button class="copy-btn" data-copy-target="p4">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 05 -->
+    <div class="post-card">
+      <h3>Post 05 — Artisans / Indépendants (Semaine 2 · Vendredi)</h3>
+      <pre class="post-text">Aux artisans, électriciens, plombiers, paysagistes, commerciaux du coin...
+
+Ton utilitaire ou ta berline, c'est ton outil de travail.
+Mais c'est aussi ta carte de visite.
+
+Tu arrives chez un client avec un Kangoo plein de poussière ou une Clio pleine de miettes, ça envoie un message — souvent pas celui que tu veux.
+
+Mon offre pro :
+✅ Plusieurs véhicules même adresse = prix dégressif
+✅ Facture avec SIRET
+✅ Je me déplace sur ton lieu de travail
+✅ Contrat mensuel si tu veux
+
+Ton image vaut mieux que ça. Je m'en occupe.
+
+📞 07 61 10 97 50
+📍 Cournonsec · Montpellier · Hérault
+
+#Artisan #Indépendant #Montpellier #NettoyageAuto</pre>
+      <button class="copy-btn" data-copy-target="p5">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 06 -->
+    <div class="post-card">
+      <h3>Post 06 — Mon matériel (Semaine 3 · Lundi)</h3>
+      <pre class="post-text">On me demande souvent ce que j'utilise. Je te dis tout, sans mentir :
+
+🔧 Shampouineuse pro (pour les sièges tissu)
+🔊 Aspirateur haute dépression
+🧽 Microfibres qualité pro (zéro trace)
+🧼 Produits nettoyants dédiés (pas du produit grande surface)
+🐾 Brosses spéciales poils d'animaux
+✨ Scratchpad + pinceaux pour les zones fines
+
+Je n'ai pas encore d'injecteur-extracteur pro, pas d'ozone, pas de céramique. Ça viendra au fur et à mesure que l'activité tourne.
+
+Honnêtement ? Ce que j'ai suffit à faire un très bon nettoyage intérieur.
+La différence entre un bon et un mauvais nettoyage, c'est pas juste le matos — c'est la méthode et le soin qu'on y met.
+
+💬 07 61 10 97 50
+
+#NettoyageAuto #Detailing #Montpellier</pre>
+      <button class="copy-btn" data-copy-target="p6">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 07 -->
+    <div class="post-card">
+      <h3>Post 07 — Odeurs (Semaine 3 · Mercredi)</h3>
+      <pre class="post-text">Ta voiture sent mauvais et tu ne sais pas pourquoi ?
+
+Les causes les plus fréquentes :
+1️⃣ Le tissu a absorbé de l'humidité (sueur, pluie, boissons renversées)
+2️⃣ La clim est un nid à bactéries (filtre habitacle à changer tous les 15-20 000 km)
+3️⃣ Restes organiques sous les sièges (miettes, cheveux, lait)
+
+Ce qui NE marche PAS :
+❌ Sprays parfumés (ça masque, ça règle rien)
+❌ Sachets sous siège (idem)
+❌ Fenêtres ouvertes 3 jours
+
+Ce qui marche :
+✅ Shampouinage en profondeur
+✅ Extraction moquette
+✅ Produit anti-odeur dédié (+20€ en option)
+
+💬 07 61 10 97 50 — envoie 3 photos, je te fais un devis.
+
+#ConseilAuto #Montpellier #NettoyageAuto</pre>
+      <button class="copy-btn" data-copy-target="p7">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 08 -->
+    <div class="post-card">
+      <h3>Post 08 — FAQ rapide (Semaine 3 · Vendredi)</h3>
+      <pre class="post-text">Les 3 questions qu'on me pose tout le temps 👇
+
+❓ "Ça prend combien de temps ?"
+→ Entre 1h (Intérieur Rapide) et 4h (Grande Remise à Niveau).
+
+❓ "Tu viens chez moi ?"
+→ Oui, c'est la base. Gratuit dans un rayon de 15 km autour de Cournonsec (Montpellier inclus).
+
+❓ "C'est combien ?"
+→ Dès 60€. Prix final fixé après tes 3 photos WhatsApp.
+
+Autres questions ? DM ouvert ou WhatsApp 07 61 10 97 50.
+
+#FAQ #NettoyageAuto #Montpellier #PORAauto</pre>
+      <button class="copy-btn" data-copy-target="p8">📋 Copier la légende</button>
+    </div>
+
+    <!-- Post 09 -->
+    <div class="post-card">
+      <h3>Post 09 — CTA fort (Semaine 4 · Lundi)</h3>
+      <pre class="post-text">Combien de temps t'attends avant de nettoyer ta voiture ?
+
+2 mois ? 6 mois ? Plus ?
+
+Pendant ce temps, le tissu absorbe. La moquette noircit. Les plastiques durcissent.
+Et chaque jour t'as l'impression que ta voiture est juste... sale.
+
+Je remets tout à niveau en 2h.
+Chez toi. Sans tu bouges.
+
+📍 Cournonsec · Montpellier · Hérault
+🎁 -20€ si t'as 3 voitures à faire d'un coup
+💬 WhatsApp 07 61 10 97 50
+
+#PropreOuRienAuto #NettoyageAuto #Montpellier #Hérault</pre>
+      <button class="copy-btn" data-copy-target="p9">📋 Copier la légende</button>
+    </div>
+  </section>
+
+  <!-- PANEL INFOS -->
+  <section class="tab-panel" id="panel-infos">
+    <div class="info-box">
+      <h3>📇 Tes infos (pour mémoire)</h3>
+      <p>Tout est déjà saisi sur le site. Si tu dois changer un truc, préviens Arnaud.</p>
+    </div>
+
+    <div class="task"><div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div><div class="task-content"><div class="task-title">Nom complet</div><div class="task-desc">Nathan Bros · 21 ans · Né le 24 juin 2004</div></div></div>
+    <div class="task"><div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div><div class="task-content"><div class="task-title">Téléphone / WhatsApp pro</div><div class="task-desc">+33 7 61 10 97 50 · Affiché partout sur le site</div></div></div>
+    <div class="task"><div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div><div class="task-content"><div class="task-title">Zone d'intervention</div><div class="task-desc">Cournonsec + 15 km gratuit (Montpellier inclus) · 15-30 km +10-15€ · Max ~1h de route</div></div></div>
+    <div class="task"><div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div><div class="task-content"><div class="task-title">Horaires affichés</div><div class="task-desc">Lun-Ven 9h-19h · Sam 9h-18h · Dim fermé (sauf urgence pro)</div></div></div>
+    <div class="task"><div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div><div class="task-content"><div class="task-title">Tarifs affichés</div><div class="task-desc">Intérieur Rapide 60€ · Complet 90€ · Grande Remise à Niveau 130-150€ · 3 voitures -20€</div></div></div>
+    <div class="task"><div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div><div class="task-content"><div class="task-title">Forme juridique</div><div class="task-desc">Micro-entreprise (en cours d'immatriculation)</div></div></div>
+
+    <button class="btn-reset" onclick="if(confirm('Réinitialiser toutes les coches ?')){localStorage.removeItem('pora-onboarding-v1');location.reload();}">🗑️ Réinitialiser mes coches</button>
+  </section>
+</main>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'pora-onboarding-v1';
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    panels.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-' + t.dataset.panel).classList.add('active');
+  }));
+
+  // Tasks state restore + toggle
+  const tasks = document.querySelectorAll('.task[data-id]');
+  tasks.forEach(task => {
+    const id = task.dataset.id;
+    if (saved[id]) task.classList.add('done');
+    task.querySelector('.task-check').addEventListener('click', () => {
+      task.classList.toggle('done');
+      saved[id] = task.classList.contains('done');
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      updateProgress();
+    });
+  });
+
+  // Progress bar
+  function updateProgress() {
+    const total = tasks.length;
+    const done = document.querySelectorAll('.task.done[data-id]').length;
+    const pct = total ? Math.round(done * 100 / total) : 0;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = done + ' / ' + total + ' tâches cochées (' + pct + '%)';
+
+    // Count per panel
+    ['urgent','semaine','mois'].forEach(pnl => {
+      const pnlTasks = document.querySelectorAll('#panel-' + pnl + ' .task[data-id]');
+      const pnlDone = document.querySelectorAll('#panel-' + pnl + ' .task.done[data-id]').length;
+      const el = document.getElementById('count-' + pnl);
+      if (el) el.textContent = pnlDone + '/' + pnlTasks.length;
+    });
+  }
+  updateProgress();
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pre = btn.previousElementSibling;
+      navigator.clipboard.writeText(pre.textContent).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copié !';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
