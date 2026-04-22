@@ -113,8 +113,49 @@
     .post-card {
       background: var(--white); border: 1px solid var(--gray-200);
       border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+      display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: start;
     }
+    @media (max-width: 640px) { .post-card { grid-template-columns: 1fr; } }
     .post-card h3 { color: var(--navy-deep); font-size: 1.05rem; margin-bottom: 12px; }
+    .post-thumb {
+      aspect-ratio: 1/1; width: 100%; max-width: 140px;
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,16,48,.1);
+    }
+    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-main h3 { margin-top: 0; }
+
+    .tip-box {
+      background: #fff7ed; border-left: 4px solid #f97316;
+      padding: 14px 18px; border-radius: 8px; margin: 12px 0;
+    }
+    .tip-box strong { color: #9a3412; }
+    .tip-box p { color: #7c2d12; font-size: .92rem; margin-bottom: 0; }
+
+    .script-box {
+      background: #f8fafc; border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+    }
+    .script-box h4 {
+      color: var(--navy-deep); font-size: 1rem; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .script-box .script-context {
+      font-size: .85rem; color: var(--gray-500); margin-bottom: 12px;
+    }
+
+    .agence-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    @media (max-width: 640px) { .agence-grid { grid-template-columns: 1fr; } }
+    .agence-col {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .agence-col.arnaud { border-color: var(--blue); background: #eff6ff; }
+    .agence-col h3 { color: var(--navy-deep); font-size: 1.05rem; margin-bottom: 12px; }
+    .agence-col ul { padding-left: 20px; }
+    .agence-col li { list-style: disc; padding: 4px 0; color: var(--gray-700); font-size: .92rem; }
     .post-text {
       background: var(--gray-50); border-radius: 8px; padding: 14px;
       font-size: .9rem; white-space: pre-wrap; font-family: inherit;
@@ -160,6 +201,9 @@
     <button class="tab" data-panel="semaine">🟠 Cette semaine <span class="badge" id="count-semaine">0</span></button>
     <button class="tab" data-panel="mois">🔵 Dans le mois <span class="badge" id="count-mois">0</span></button>
     <button class="tab" data-panel="posts">📱 Posts Insta <span class="badge">9</span></button>
+    <button class="tab" data-panel="scripts">📞 Scripts prospection</button>
+    <button class="tab" data-panel="conseils">💡 Conseils du grand frère</button>
+    <button class="tab" data-panel="agence">🤝 Ce qu'Arnaud fait pour toi</button>
     <button class="tab" data-panel="infos">📇 Infos fournies</button>
   </nav>
 
@@ -168,6 +212,15 @@
     <div class="info-box">
       <h3>🔴 À faire en priorité (avant mise en ligne)</h3>
       <p>Ces 6 points bloquent la mise en ligne sur ton vrai domaine. Sans ça, on reste en staging.</p>
+    </div>
+
+    <div class="task" data-id="formsubmit">
+      <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
+      <div class="task-content">
+        <div class="task-title">🔑 Activer l'email du formulaire du site (URGENT — 30 secondes)</div>
+        <div class="task-desc">Le formulaire contact du site envoie actuellement vers <strong>nathan.bros.pro@gmail.com</strong>. Dès le premier envoi, tu recevras un email de confirmation de "Formsubmit" dans ton Gmail — <strong>clique sur le lien "Confirm"</strong>. Après ça, tous les formulaires t'arrivent directement par email. <br><em>Note Arnaud : si tu préfères une autre adresse email, préviens Arnaud, il change la ligne dans contact.html.</em></div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent · 30 sec</span></div>
+      </div>
     </div>
 
     <div class="task" data-id="siret">
@@ -358,6 +411,8 @@
 
     <!-- Post 01 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-01-annonce.jpg" alt="Post 01" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 01 — Annonce ouverture (Semaine 1 · Lundi)</h3>
       <pre class="post-text">Nouveau sur Montpellier et l'Hérault : Propre ou Rien Auto. 🚗✨
 
@@ -372,10 +427,13 @@ Prix clairs, travail sérieux, zéro bla-bla.
 
 #Montpellier #Hérault #Cournonsec #NettoyageAuto #PORAauto</pre>
       <button class="copy-btn" data-copy-target="p1">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 02 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-02-offre.jpg" alt="Post 02" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 02 — Offre 3 voitures (Semaine 1 · Vendredi)</h3>
       <pre class="post-text">🎁 Offre de lancement.
 
@@ -394,10 +452,13 @@ Parfait pour :
 
 #OffreLancement #NettoyageAuto #Montpellier #PropreOuRienAuto</pre>
       <button class="copy-btn" data-copy-target="p2">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 03 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-03-avantapres.jpg" alt="Post 03" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 03 — Avant/Après #1 (Semaine 2 · Lundi)</h3>
       <pre class="post-text">AVANT. APRÈS.
 
@@ -411,10 +472,13 @@ Ton intérieur a vu passer la famille, les chantiers, les longs trajets ?
 
 #AvantApres #NettoyageAuto #Montpellier</pre>
       <button class="copy-btn" data-copy-target="p3">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 04 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-04-tunnel.jpg" alt="Post 04" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 04 — Tunnel vs Pro (Semaine 2 · Mercredi)</h3>
       <pre class="post-text">Lavage tunnel à 15€ vs nettoyage pro à domicile.
 Spoiler : c'est pas la même chose.
@@ -438,10 +502,13 @@ On vient à toi — ou tu viens chez nous. À toi de voir.
 
 #LavageAuto #ConseilAuto #Montpellier</pre>
       <button class="copy-btn" data-copy-target="p4">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 05 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-05-artisans.jpg" alt="Post 05" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 05 — Artisans / Indépendants (Semaine 2 · Vendredi)</h3>
       <pre class="post-text">Aux artisans, électriciens, plombiers, paysagistes, commerciaux du coin...
 
@@ -463,10 +530,13 @@ Ton image vaut mieux que ça. Je m'en occupe.
 
 #Artisan #Indépendant #Montpellier #NettoyageAuto</pre>
       <button class="copy-btn" data-copy-target="p5">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 06 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-06-materiel.jpg" alt="Post 06" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 06 — Mon matériel (Semaine 3 · Lundi)</h3>
       <pre class="post-text">On me demande souvent ce que j'utilise. Je te dis tout, sans mentir :
 
@@ -486,10 +556,13 @@ La différence entre un bon et un mauvais nettoyage, c'est pas juste le matos �
 
 #NettoyageAuto #Detailing #Montpellier</pre>
       <button class="copy-btn" data-copy-target="p6">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 07 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-07-odeurs.jpg" alt="Post 07" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 07 — Odeurs (Semaine 3 · Mercredi)</h3>
       <pre class="post-text">Ta voiture sent mauvais et tu ne sais pas pourquoi ?
 
@@ -512,10 +585,13 @@ Ce qui marche :
 
 #ConseilAuto #Montpellier #NettoyageAuto</pre>
       <button class="copy-btn" data-copy-target="p7">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 08 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-08-faq.jpg" alt="Post 08" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 08 — FAQ rapide (Semaine 3 · Vendredi)</h3>
       <pre class="post-text">Les 3 questions qu'on me pose tout le temps 👇
 
@@ -532,10 +608,13 @@ Autres questions ? DM ouvert ou WhatsApp 07 61 10 97 50.
 
 #FAQ #NettoyageAuto #Montpellier #PORAauto</pre>
       <button class="copy-btn" data-copy-target="p8">📋 Copier la légende</button>
+      </div>
     </div>
 
     <!-- Post 09 -->
     <div class="post-card">
+      <div class="post-thumb"><img src="assets/img/posts/final-post-09-cta.jpg" alt="Post 09" loading="lazy"/></div>
+      <div class="post-main">
       <h3>Post 09 — CTA fort (Semaine 4 · Lundi)</h3>
       <pre class="post-text">Combien de temps t'attends avant de nettoyer ta voiture ?
 
@@ -553,6 +632,236 @@ Chez toi. Sans tu bouges.
 
 #PropreOuRienAuto #NettoyageAuto #Montpellier #Hérault</pre>
       <button class="copy-btn" data-copy-target="p9">📋 Copier la légende</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL SCRIPTS PROSPECTION -->
+  <section class="tab-panel" id="panel-scripts">
+    <div class="info-box">
+      <h3>📞 Messages prêts à copier pour contacter tes premiers prospects</h3>
+      <p>Copie, personnalise si tu veux, envoie par WhatsApp / SMS / DM Instagram. Le but : déclencher 2-3 premiers devis cette semaine.</p>
+    </div>
+
+    <div class="tip-box">
+      <strong>💡 Règle d'or</strong>
+      <p>N'envoie jamais un copier-coller brut. Ajoute 1 phrase personnalisée au début ("Salut Kevin, j'espère que tu vas bien...") et 1 à la fin. Ça fait toute la différence entre "spam" et "pote qui lance sa boîte".</p>
+    </div>
+
+    <div class="script-box">
+      <h4>📱 Script 1 — Famille / amis proches (WhatsApp)</h4>
+      <p class="script-context">Pour les gens qui savent que tu te lances. Direct, sans prétention.</p>
+      <pre class="post-text">Salut [prénom] 👋
+
+Tu sais que je viens de lancer ma boîte de nettoyage auto à Cournonsec.
+Je suis à la recherche de mes 5 premiers clients pour rôder le tout + faire des photos avant/après pour mon site.
+
+Si t'as une voiture qui a besoin d'un coup de frais (ou celle de quelqu'un de ta famille), je te fais un prix de lancement :
+→ Intérieur Rapide à 50€ (au lieu de 60€)
+→ Intérieur Complet à 75€ (au lieu de 90€)
+
+En échange, j'aimerais bien faire des photos avant/après pour mon site (visage anonyme, zéro pub sur toi).
+
+Tu m'envoies 3 photos de ta voiture (intérieur + coffre) et je te fais un devis ?
+
+Merci beaucoup, ça m'aide grave à me lancer 🙏</pre>
+      <button class="copy-btn" data-copy-target="s1">📋 Copier</button>
+    </div>
+
+    <div class="script-box">
+      <h4>🔧 Script 2 — Artisan / indépendant que tu connais (SMS / WhatsApp)</h4>
+      <p class="script-context">Pour un électricien, plombier, peintre, paysagiste... que tu connais de vue ou d'Arnaud.</p>
+      <pre class="post-text">Salut [prénom], c'est Nathan (le frère d'Arnaud / je te connais via [contexte]).
+
+Je viens de lancer Propre ou Rien Auto — nettoyage auto intérieur à domicile à Cournonsec et dans l'Hérault.
+
+Ton utilitaire (je crois que c'est un [Kangoo / Berlingo / Trafic] ?) passe pas mal de temps sur les chantiers. Je me dis que tu pourrais apprécier un vrai coup de propre dedans — rapide, pro, et je viens sur ton lieu de travail.
+
+Intérieur Complet à 90€ — 2h de boulot.
+Offre lancement : si t'as 2-3 véhicules à me refiler (flotte, famille), -20€ sur le total.
+
+Ça t'intéresse d'avoir un devis ? Envoie-moi 3 photos au 07 61 10 97 50 (WhatsApp), je te réponds en moins d'1h.
+
+Merci 🚐</pre>
+      <button class="copy-btn" data-copy-target="s2">📋 Copier</button>
+    </div>
+
+    <div class="script-box">
+      <h4>🏢 Script 3 — Petite PME / garage / concession locale (cold)</h4>
+      <p class="script-context">Pour prospecter des boîtes où personne te connaît. Plus formel, on tutoie pas.</p>
+      <pre class="post-text">Bonjour,
+
+Je m'appelle Nathan Bros, je lance Propre ou Rien Auto — un service de nettoyage auto intérieur à domicile basé à Cournonsec (34).
+
+Je contacte les entreprises locales qui gèrent plusieurs véhicules, car j'ai une offre intéressante pour vous :
+→ Intervention directement sur votre parking
+→ Plusieurs véhicules le même jour = meilleur prix
+→ Facture sur SIRET (même si en tant que micro-entreprise, pas de TVA)
+→ Offre lancement : -20€ pour 3 véhicules traités le même jour
+
+Vos véhicules représentent l'image de votre entreprise. Si c'est un sujet pour vous, je peux passer vous voir ou vous envoyer un devis à partir de quelques photos.
+
+Mon WhatsApp : 07 61 10 97 50
+Mon site : propreourienauto.fr
+
+Belle journée,
+Nathan Bros — PORA</pre>
+      <button class="copy-btn" data-copy-target="s3">📋 Copier</button>
+    </div>
+
+    <div class="script-box">
+      <h4>💬 Script 4 — Réponse type quand quelqu'un demande un devis</h4>
+      <p class="script-context">À envoyer dès qu'un prospect te dit "combien ça coûte ?" sur WhatsApp / DM.</p>
+      <pre class="post-text">Salut, merci pour ta demande ! 🚗
+
+Pour te faire un prix juste, j'ai besoin de 3 photos de ta voiture :
+📸 Photo 1 : vue générale de l'intérieur (siège conducteur + tableau de bord)
+📸 Photo 2 : banquette arrière
+📸 Photo 3 : coffre
+
+Bonus utile : si y a une tache, une odeur, ou poil d'animal, ajoute une photo + un mot.
+
+Les tarifs de base :
+🟢 Intérieur Rapide — 60€ (~1h) — voiture entretenue
+🔵 Intérieur Complet — 90€ (~2h) — LE standard
+🟠 Grande Remise à Niveau — 130-150€ (3-4h) — voiture très sale
+
+Je viens chez toi (gratuit sur 15 km autour de Cournonsec, Montpellier inclus).
+
+Envoie quand tu peux, je te réponds avec un prix exact dans l'heure 🙏</pre>
+      <button class="copy-btn" data-copy-target="s4">📋 Copier</button>
+    </div>
+
+    <div class="script-box">
+      <h4>⭐ Script 5 — Demander un avis Google après la prestation</h4>
+      <p class="script-context">À envoyer 1 à 2 jours après une prestation réussie. Ciblé sur les clients contents.</p>
+      <pre class="post-text">Salut [prénom],
+
+J'espère que tu profites bien de ta voiture propre 🚗✨
+
+Petite faveur : ça te dérangerait de me laisser un petit avis Google ? Ça m'aiderait énormément à me faire connaître localement (la concurrence des tunnels est rude !).
+
+Voilà le lien direct : [LIEN_FICHE_GOOGLE_BUSINESS]
+
+Même 2 lignes ça fait plaisir 🙏
+
+Merci encore pour ta confiance,
+Nathan — PORA</pre>
+      <button class="copy-btn" data-copy-target="s5">📋 Copier</button>
+    </div>
+
+    <div class="tip-box">
+      <strong>🎯 Objectif concret</strong>
+      <p>Semaine 1 : envoyer <strong>10 messages</strong> (famille + proches).<br>Semaine 2 : relancer + envoyer à 10 prospects pros.<br>Viser <strong>3 devis</strong> et <strong>1 prestation confirmée</strong> à 7 jours.</p>
+    </div>
+  </section>
+
+  <!-- PANEL CONSEILS -->
+  <section class="tab-panel" id="panel-conseils">
+    <div class="info-box">
+      <h3>💡 Conseils d'un autre entrepreneur (Arnaud)</h3>
+      <p>Des trucs que je voudrais savoir au tout début. Pas de la théorie, juste ce qui fait vraiment la différence sur le terrain.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>🚗 1. Prends une photo "avant" de CHAQUE voiture avant de commencer</h4>
+      <p>Pas pour le site, pour ta protection. Si un client dit après "y avait pas cette rayure avant", tu prouves. Fais-le systématique, 10 secondes chrono, discret.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>💰 2. Demande le paiement à la fin, devant la voiture propre</h4>
+      <p>Jamais avant. Toujours au moment où le client voit le résultat. Ça fluidifie énormément, et ça évite les impayés.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>⏰ 3. Sous-promet, sur-livre</h4>
+      <p>Dis "2h30", fais en 2h pile. Dis "ça va être clean", arrive à un résultat bluffant. Chaque client choqué (en bien) = 2-3 prospects potentiels via bouche à oreille.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>📝 4. Tiens un carnet de bord (même en papier)</h4>
+      <p>Pour chaque prestation note : date, client, marque voiture, prestation, prix, durée réelle, problèmes rencontrés, produit qui a bien marché. Au bout de 30 voitures tu sauras exactement ton coût horaire et ta marge.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>🎬 5. Film UNE minute de chaque prestation (vertical, téléphone)</h4>
+      <p>5 clips de 10s : avant / aspiration / shampouinage / détail / après. Tu enchaînes en montage ultra rapide. C'est ce qui marche sur TikTok / Reel Instagram. <strong>Sans caméra, pas de contenu. Sans contenu, pas de clients gratuits.</strong></p>
+    </div>
+
+    <div class="script-box">
+      <h4>🚫 6. Apprends à dire NON</h4>
+      <p>Une voiture vraiment trop sale (chantier lourd, crasse extrême) = tu refuses ou tu facture cher. Mieux vaut 1 non que 1 client mécontent qui laisse un avis 1 étoile.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>📲 7. Active "Statut WhatsApp" pour partager ton activité</h4>
+      <p>Chaque voiture terminée → story WhatsApp (24h visible). Tes contacts voient ce que tu fais sans effort promo lourd. Super efficace en local.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>🧠 8. Ta réputation se fait sur les 10 premiers clients</h4>
+      <p>Sur ces 10-là, mets le paquet : soigne chaque détail, prends le temps, offre une petite attention (un désodorisant offert, une cire rapide sur le volant). Demande systématiquement un avis Google. Une base de 10 avis 5★, c'est l'arme nucléaire du SEO local.</p>
+    </div>
+
+    <div class="tip-box">
+      <strong>🏆 Mantra</strong>
+      <p>Un client qui te recommande 2 personnes = tu croisées 2 autres clients gratuitement. Multiplié par 50 clients la première année = 100 clients "gratuits" en plus. C'est la seule stratégie qui marche vraiment au début.</p>
+    </div>
+  </section>
+
+  <!-- PANEL AGENCE -->
+  <section class="tab-panel" id="panel-agence">
+    <div class="info-box">
+      <h3>🤝 Ce qu'Arnaud fait pour toi / Ce que tu dois faire toi-même</h3>
+      <p>On s'est réparti le boulot. Pour que tu saches exactement qui gère quoi, voici le partage.</p>
+    </div>
+
+    <div class="agence-grid">
+      <div class="agence-col arnaud">
+        <h3>🎨 Ce que je gère pour toi (Arnaud)</h3>
+        <ul>
+          <li>Le site web (design, code, maintenance, évolutions)</li>
+          <li>La charte graphique, le logo, les couleurs</li>
+          <li>Les visuels pour Instagram (posts, stories, reels)</li>
+          <li>Les cartes de visite + flyers (design Illustrator → commande imprimeur)</li>
+          <li>Le covering véhicule (design + mise en relation poseur)</li>
+          <li>Le SEO (Google Search Console, optimisations, suivi positions)</li>
+          <li>La Fiche Google Business Profile (config initiale)</li>
+          <li>Les automatisations Jarvis (leads, relances, devis IA)</li>
+          <li>Stratégie long terme (ouvrir d'autres zones, structurer l'offre)</li>
+          <li>Support technique (quand un truc plante)</li>
+        </ul>
+      </div>
+      <div class="agence-col">
+        <h3>🛠️ Ce que tu gères toi (Nathan)</h3>
+        <ul>
+          <li>Les prestations (évidemment)</li>
+          <li>Les réponses WhatsApp / appels / DM</li>
+          <li>Les photos "avant / après" lors de chaque prestation (utile pour l'agence)</li>
+          <li>Les stories quotidiennes (coulisses, voiture du jour)</li>
+          <li>Les relations clients (avis, satisfaction, re-booking)</li>
+          <li>La prospection active (messages, flyers, bouche à oreille)</li>
+          <li>L'admin légal (SIRET, RC Pro, compta)</li>
+          <li>L'achat matériel (quand tu évolueras : tornador, kärcher…)</li>
+          <li>Le planning, les déplacements, le carburant</li>
+          <li>Me remonter les demandes clients qu'on ne traite pas (pour voir si on ajoute)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top: 24px;">
+      <strong>🗣️ Comment on communique</strong>
+      <p>WhatsApp pour l'urgent (bug site, question client, SOS). Messenger / SMS pour les retours de fin de semaine. On fait un point tous les 15 jours sur ce qui marche / marche pas.</p>
+    </div>
+
+    <div class="script-box">
+      <h4>📊 Ce que je te donne chaque mois</h4>
+      <ul>
+        <li><strong>Rapport SEO</strong> : combien de recherches Google t'ont trouvé, quels mots-clés, positions</li>
+        <li><strong>Trafic site</strong> : visites, pages vues, sources de trafic</li>
+        <li><strong>Leads générés</strong> : nombre de devis envoyés via le site / Insta / WhatsApp</li>
+        <li><strong>Suggestions d'amélioration</strong> : un ou deux chantiers à lancer le mois suivant</li>
+      </ul>
     </div>
   </section>
 

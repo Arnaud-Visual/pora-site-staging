@@ -68,12 +68,19 @@
         <h2 style="margin-bottom: 16px;">Pas fan de WhatsApp ?</h2>
         <p style="color: var(--gray-700); margin-bottom: 24px;">Remplis les infos ci-dessous et Nathan te recontacte dans la journée.</p>
 
-        <div class="form-success">Merci ! Nathan te recontacte dans la journée (Lun-Sam 9h-19h).</div>
+        <div class="form-success">✓ Message envoyé ! On te recontacte dans la journée (Lun-Sam 9h-19h).</div>
         <!--
-          NB : endpoint Formspree placeholder. Remplacer FORMSPREE_ID par l'ID réel après inscription (formspree.io).
-          Fallback mailto configuré sur data-mailto.
+          Form hybride :
+          1. Envoi email background via formsubmit.co (activer une fois en validant le 1er email)
+          2. Ouverture WhatsApp avec message pré-rempli (canal principal)
+          Zéro compte tiers à créer. Juste confirmer le premier email sur l'adresse configurée.
         -->
-        <form class="form" data-form action="https://formspree.io/f/FORMSPREE_ID" data-mailto="contact@propreourienauto.fr" method="POST">
+        <form class="form" id="contact-form" action="https://formsubmit.co/nathan.bros.pro@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="🚗 Demande de devis PORA (site)" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://arnaud-visual.github.io/pora-site-staging/contact.html#merci" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_autoresponse" value="Merci pour ta demande ! Nathan te recontacte dans la journée (Lun-Sam 9h-19h). Pour un retour plus rapide, envoie 3 photos WhatsApp au 07 61 10 97 50." />
           <div class="form-row">
             <div>
               <label for="nom">Prénom / Nom *</label>
@@ -117,10 +124,36 @@
             <textarea id="message" name="message" rows="4" placeholder="Décris rapidement l'état de ta voiture, tes attentes..."></textarea>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Envoyer ma demande</button>
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">💬 Envoyer + continuer sur WhatsApp</button>
           </div>
-          <p style="font-size: .85rem; color: var(--gray-500); margin-top: 4px;">En envoyant ce formulaire, tu acceptes qu'on te recontacte pour ton devis. Aucune donnée vendue ou partagée.</p>
+          <p style="font-size: .85rem; color: var(--gray-500); margin-top: 4px;">À l'envoi, on t'ouvre WhatsApp avec ton message pré-rempli pour finaliser avec Nathan (tu peux y ajouter tes 3 photos). Aucune donnée vendue ou partagée.</p>
         </form>
+
+        <script>
+        (function() {
+          const form = document.getElementById('contact-form');
+          if (!form) return;
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fd = new FormData(form);
+            // 1. Envoi email en background (non bloquant) via formsubmit.co
+            fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } }).catch(function(){});
+            // 2. Ouverture WhatsApp avec message pré-rempli (canal principal)
+            const msg =
+              'Salut Nathan, demande de devis PORA (via site) :\n' +
+              '• Nom : ' + (fd.get('nom') || '—') + '\n' +
+              '• Tél : ' + (fd.get('telephone') || '—') + '\n' +
+              '• Email : ' + (fd.get('email') || '—') + '\n' +
+              '• Véhicule : ' + (fd.get('vehicule') || '—') + '\n' +
+              '• Formule : ' + (fd.get('prestation') || '—') + '\n\n' +
+              'Contexte :\n' + (fd.get('message') || '—') + '\n\n' +
+              '(je t\'envoie 3 photos juste après)';
+            setTimeout(function() {
+              window.location.href = 'https://wa.me/33761109750?text=' + encodeURIComponent(msg);
+            }, 400);
+          });
+        })();
+        </script>
       </div>
 
       <aside class="contact-info">
