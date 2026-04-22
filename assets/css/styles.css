@@ -136,9 +136,9 @@ p { margin-bottom: 12px; }
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
-  background-image: url('../img/hero-01-interieur.webp');
+  background-image: url('../img/site-hero-interieur.webp');
   background-size: cover; background-position: center;
-  opacity: .22; z-index: 0; filter: saturate(1.1) contrast(1.05);
+  opacity: .38; z-index: 0; filter: saturate(1.1) contrast(1.05);
 }
 .hero::after {
   content: ''; position: absolute; inset: 0;
@@ -161,7 +161,7 @@ p { margin-bottom: 12px; }
 @media (max-width: 768px) {
   .hero { padding: 64px 0 80px; }
   .hero-lead { font-size: 1.05rem; }
-  .hero::before { background-image: url('../img/hero-01-interieur-mobile.webp'); }
+  .hero::before { background-image: url('../img/site-hero-interieur-mobile.webp'); }
   .hero-actions .btn { width: 100%; }
 }
 
@@ -218,9 +218,9 @@ p { margin-bottom: 12px; }
 }
 .pro-section::before {
   content: ''; position: absolute; inset: 0;
-  background-image: url('../img/hero-03-pro.webp');
+  background-image: url('../img/site-pro-kangoo.webp');
   background-size: cover; background-position: center;
-  opacity: .2;
+  opacity: .28;
 }
 .pro-section .container { position: relative; }
 .pro-section h2 { color: var(--white); }
