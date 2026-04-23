@@ -156,6 +156,52 @@
     .agence-col h3 { color: var(--navy-deep); font-size: 1.05rem; margin-bottom: 12px; }
     .agence-col ul { padding-left: 20px; }
     .agence-col li { list-style: disc; padding: 4px 0; color: var(--gray-700); font-size: .92rem; }
+    /* Stories grid */
+    .stories-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px; margin-top: 16px;
+    }
+    .story-card {
+      position: relative; border-radius: 12px; overflow: hidden;
+      aspect-ratio: 9/16; box-shadow: 0 2px 10px rgba(0,16,48,.12);
+      transition: transform var(--transition); cursor: pointer;
+      background: var(--gray-100);
+    }
+    .story-card:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 20px rgba(0,16,48,.18); }
+    .story-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-num {
+      position: absolute; top: 8px; left: 8px; background: rgba(0,16,48,.85);
+      color: white; width: 26px; height: 26px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700;
+    }
+    .story-modal {
+      display: none; position: fixed; inset: 0; background: rgba(0,16,48,.92);
+      z-index: 9999; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .story-modal.open { display: flex; }
+    .story-modal img {
+      max-width: 100%; max-height: 90vh; border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .story-modal-close {
+      position: absolute; top: 20px; right: 20px;
+      background: white; color: var(--navy-deep);
+      border: 0; width: 44px; height: 44px; border-radius: 50%;
+      font-size: 1.5rem; cursor: pointer;
+    }
+    .planning-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+      margin-top: 12px; font-size: .8rem;
+    }
+    @media (max-width: 640px) { .planning-grid { grid-template-columns: repeat(4, 1fr); } }
+    .planning-day {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: 8px; padding: 10px 8px; text-align: center;
+    }
+    .planning-day strong { display: block; color: var(--navy-deep); font-size: .8rem; margin-bottom: 4px; }
+    .planning-day span { color: var(--blue); font-weight: 600; }
     .post-text {
       background: var(--gray-50); border-radius: 8px; padding: 14px;
       font-size: .9rem; white-space: pre-wrap; font-family: inherit;
@@ -201,6 +247,7 @@
     <button class="tab" data-panel="semaine">🟠 Cette semaine <span class="badge" id="count-semaine">0</span></button>
     <button class="tab" data-panel="mois">🔵 Dans le mois <span class="badge" id="count-mois">0</span></button>
     <button class="tab" data-panel="posts">📱 Posts Insta <span class="badge">9</span></button>
+    <button class="tab" data-panel="stories">🎬 Stories <span class="badge">17</span></button>
     <button class="tab" data-panel="scripts">📞 Scripts prospection</button>
     <button class="tab" data-panel="conseils">💡 Conseils du grand frère</button>
     <button class="tab" data-panel="agence">🤝 Ce qu'Arnaud fait pour toi</button>
@@ -637,6 +684,114 @@ Chez toi. Sans tu bouges.
     </div>
   </section>
 
+  <!-- PANEL STORIES -->
+  <section class="tab-panel" id="panel-stories">
+    <div class="info-box">
+      <h3>🎬 17 stories format 9:16 — prêtes à publier</h3>
+      <p>Pack complet de stories générées pour Instagram, Facebook, Snapchat, TikTok et WhatsApp Statut. Clic sur une story pour l'agrandir. <strong>Version HD dispo dans ton Drive</strong> (dossier <code>03_Stories_Instagram_TikTok/</code>).</p>
+    </div>
+
+    <div class="tip-box">
+      <strong>💡 La règle des stories</strong>
+      <p>Les stories disparaissent en 24 h et ont une portée 2-3× supérieure aux posts. <strong>Objectif = rester visible tous les jours.</strong> Pas besoin de chef-d'œuvre — de la régularité, du vrai, du local.</p>
+    </div>
+
+    <h3 style="color: var(--navy-deep); margin-top: 24px;">📱 Choisis ta story du jour</h3>
+    <div class="stories-grid">
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-01.jpg')"><span class="story-num">1</span><img src="assets/img/stories/story-01.jpg" alt="Story 1" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-02.jpg')"><span class="story-num">2</span><img src="assets/img/stories/story-02.jpg" alt="Story 2" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-03.jpg')"><span class="story-num">3</span><img src="assets/img/stories/story-03.jpg" alt="Story 3" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-04.jpg')"><span class="story-num">4</span><img src="assets/img/stories/story-04.jpg" alt="Story 4" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-05.jpg')"><span class="story-num">5</span><img src="assets/img/stories/story-05.jpg" alt="Story 5" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-06.jpg')"><span class="story-num">6</span><img src="assets/img/stories/story-06.jpg" alt="Story 6" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-07.jpg')"><span class="story-num">7</span><img src="assets/img/stories/story-07.jpg" alt="Story 7" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-08.jpg')"><span class="story-num">8</span><img src="assets/img/stories/story-08.jpg" alt="Story 8" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-09.jpg')"><span class="story-num">9</span><img src="assets/img/stories/story-09.jpg" alt="Story 9" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-10.jpg')"><span class="story-num">10</span><img src="assets/img/stories/story-10.jpg" alt="Story 10" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-11.jpg')"><span class="story-num">11</span><img src="assets/img/stories/story-11.jpg" alt="Story 11" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-12.jpg')"><span class="story-num">12</span><img src="assets/img/stories/story-12.jpg" alt="Story 12" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-13.jpg')"><span class="story-num">13</span><img src="assets/img/stories/story-13.jpg" alt="Story 13" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-14.jpg')"><span class="story-num">14</span><img src="assets/img/stories/story-14.jpg" alt="Story 14" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-15.jpg')"><span class="story-num">15</span><img src="assets/img/stories/story-15.jpg" alt="Story 15" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-16.jpg')"><span class="story-num">16</span><img src="assets/img/stories/story-16.jpg" alt="Story 16" loading="lazy"/></div>
+      <div class="story-card" onclick="openStoryModal('assets/img/stories/story-17.jpg')"><span class="story-num">17</span><img src="assets/img/stories/story-17.jpg" alt="Story 17" loading="lazy"/></div>
+    </div>
+
+    <h3 style="color: var(--navy-deep); margin-top: 32px;">📅 Planning stratégique — cycle sur 3 semaines</h3>
+    <p style="color: var(--gray-700); font-size: .95rem;">17 stories ÷ 3 semaines = environ 1 story/jour. Publier <strong>chaque jour la même story sur 3-4 plateformes</strong> (Insta + FB + Snap + WhatsApp Statut) = 3-4× plus de portée pour le même effort.</p>
+
+    <div class="planning-grid">
+      <div class="planning-day"><strong>Lun</strong><span>Story 1</span></div>
+      <div class="planning-day"><strong>Mar</strong><span>Story 4</span></div>
+      <div class="planning-day"><strong>Mer</strong><span>Story 7</span></div>
+      <div class="planning-day"><strong>Jeu</strong><span>Story 10</span></div>
+      <div class="planning-day"><strong>Ven</strong><span>Story 13</span></div>
+      <div class="planning-day"><strong>Sam</strong><span>Story 15</span></div>
+      <div class="planning-day"><strong>Dim</strong><span>Pause</span></div>
+    </div>
+    <p style="color: var(--gray-500); font-size: .85rem; margin-top: 8px;">Semaine 2 : stories 2/5/8/11/14/16 — Semaine 3 : stories 3/6/9/12/17 + tes propres photos</p>
+
+    <div class="script-box">
+      <h4>📲 Sur quelles plateformes publier ?</h4>
+      <p class="script-context">Ton public cible (30-55 ans actifs dans l'Hérault) est sur plusieurs plateformes. Publie la même story partout — effort minimum, portée maximum.</p>
+      <ul style="padding-left: 20px; margin-top: 8px;">
+        <li style="list-style: disc; padding: 4px 0;"><strong>Instagram Stories</strong> — ta plateforme #1 (publie ici en premier)</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Facebook Stories</strong> — cross-post auto depuis Insta (dans les paramètres Meta)</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>WhatsApp Statut</strong> — portée locale énorme, tous tes contacts voient</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Snapchat</strong> — si tu as un compte pro, audience jeune complémentaire</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>TikTok Stories</strong> — bonus quand tu commenceras à poster des vidéos</li>
+      </ul>
+    </div>
+
+    <div class="script-box">
+      <h4>🔁 Rotation et variation — ne pas spammer la même story</h4>
+      <p>Si une story marche bien (beaucoup de vues), tu peux la republier 2-3 semaines plus tard. <strong>Mixer les types</strong> :</p>
+      <ul style="padding-left: 20px; margin-top: 8px;">
+        <li style="list-style: disc; padding: 4px 0;"><strong>Stories "annonce / offre"</strong> (stats, prix, promo) → 2-3× par semaine max</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Stories "conseils / coulisses"</strong> (tips, matos, before/after) → 2-3× par semaine</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Stories "preuve sociale"</strong> (témoignages, avis Google) → dès que tu en as</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Stories "réalité"</strong> (photos perso d'une voiture du jour, timelapse) → tous les jours idéalement</li>
+      </ul>
+    </div>
+
+    <div class="script-box">
+      <h4>✨ Boost chaque story — 30 sec de plus par story, +200 % de portée</h4>
+      <ul style="padding-left: 20px; margin-top: 8px;">
+        <li style="list-style: disc; padding: 4px 0;"><strong>Localisation</strong> : toujours ajouter "Cournonsec" ou "Montpellier" → apparaît dans le feed local</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Hashtag</strong> : #Montpellier #Hérault #NettoyageAuto (1-2 max, pas plus)</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Mentions</strong> : tagger un client (avec son accord), un autre pro local, un partenaire</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Stickers</strong> : Sondage ("Ta voiture = propre ou crade ?") · Quiz · Emoji slider → le monde interagit beaucoup plus</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Sticker "Lien"</strong> : toujours mettre ton lien WhatsApp (wa.me/33761109750) → clic direct vers toi</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>Musique</strong> : ajouter une musique tendance augmente la portée de 20-40 %</li>
+      </ul>
+    </div>
+
+    <div class="script-box">
+      <h4>🎯 Quand publier (créneaux qui marchent)</h4>
+      <ul style="padding-left: 20px; margin-top: 8px;">
+        <li style="list-style: disc; padding: 4px 0;"><strong>8h-9h</strong> : trajet matin (gens au réveil, scrollent avant le boulot)</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>12h-13h</strong> : pause déjeuner (pic d'engagement)</li>
+        <li style="list-style: disc; padding: 4px 0;"><strong>19h-21h</strong> : créneau roi (après le travail, avant le dodo)</li>
+      </ul>
+      <p style="margin-top: 8px;">1-2 stories par jour sur ces créneaux suffit. <strong>Mieux vaut 1 par jour qu'une rafale de 10 par semaine</strong>.</p>
+    </div>
+
+    <div class="tip-box">
+      <strong>🔥 Bonus : les stories qui explosent</strong>
+      <p>Les stories qui performent le mieux sur ce secteur :<br>
+      1. <strong>Avant/Après</strong> en timelapse (10 secondes) — effet "waouh" garanti<br>
+      2. <strong>Un détail surprenant</strong> (ex : poils de chien extraits, tache de café qui part) — gros ratio d'engagement<br>
+      3. <strong>La réaction du client</strong> (filme discrètement son visage quand il voit sa voiture propre)<br>
+      4. <strong>Le "coulisses" honnête</strong> (toi en plein boulot, le matos, la musique) — humanise la marque</p>
+    </div>
+  </section>
+
+  <!-- Modal zoom story -->
+  <div class="story-modal" id="story-modal" onclick="closeStoryModal()">
+    <button class="story-modal-close" onclick="closeStoryModal()">×</button>
+    <img id="story-modal-img" src="" alt="Story zoomée" />
+  </div>
+
   <!-- PANEL SCRIPTS PROSPECTION -->
   <section class="tab-panel" id="panel-scripts">
     <div class="info-box">
@@ -995,6 +1150,15 @@ Nathan — PORA</pre>
     });
   }
   updateProgress();
+
+  // Story modal
+  window.openStoryModal = function(src) {
+    document.getElementById('story-modal-img').src = src;
+    document.getElementById('story-modal').classList.add('open');
+  };
+  window.closeStoryModal = function() {
+    document.getElementById('story-modal').classList.remove('open');
+  };
 
   // Copy buttons
   document.querySelectorAll('.copy-btn').forEach(btn => {
