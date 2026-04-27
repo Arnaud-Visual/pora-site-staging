@@ -75,7 +75,9 @@
           2. Ouverture WhatsApp avec message pré-rempli (canal principal)
           Zéro compte tiers à créer. Juste confirmer le premier email sur l'adresse configurée.
         -->
-        <form class="form" id="contact-form" action="https://formsubmit.co/propreourienauto@gmail.com" method="POST">
+        <!-- iframe caché : reçoit la réponse FormSubmit sans quitter la page -->
+        <iframe name="formsubmit-iframe" style="display:none;" aria-hidden="true"></iframe>
+        <form class="form" id="contact-form" action="https://formsubmit.co/propreourienauto@gmail.com" method="POST" target="formsubmit-iframe">
           <input type="hidden" name="_subject" value="🚗 Demande de devis PORA (site)" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value="https://arnaud-visual.github.io/pora-site-staging/contact.html#merci" />
@@ -131,19 +133,18 @@
 
         <script>
         (function() {
-          const form = document.getElementById('contact-form');
+          var form = document.getElementById('contact-form');
           if (!form) return;
           form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const fd = new FormData(form);
-            const btn = form.querySelector('button[type="submit"]');
-            const success = document.querySelector('.form-success');
+            // NE PAS appeler e.preventDefault() — le form soumet nativement vers l'iframe caché.
+            // FormSubmit reçoit un vrai POST HTML → email d'activation envoyé dès le 1er submit.
+            var fd = new FormData(form);
+            var btn = form.querySelector('button[type="submit"]');
+            var success = document.querySelector('.form-success');
 
-            // Désactiver le bouton pendant l'envoi
             if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
 
-            // Message WhatsApp pré-rempli
-            const msg =
+            var msg =
               'Salut Nathan, demande de devis PORA (via site) :\n' +
               '• Nom : ' + (fd.get('nom') || '—') + '\n' +
               '• Tél : ' + (fd.get('telephone') || '—') + '\n' +
@@ -152,19 +153,18 @@
               '• Formule : ' + (fd.get('prestation') || '—') + '\n\n' +
               'Contexte :\n' + (fd.get('message') || '—') + '\n\n' +
               '(je t\'envoie 3 photos juste après)';
-            const waUrl = 'https://wa.me/33761109750?text=' + encodeURIComponent(msg);
+            var waUrl = 'https://wa.me/33761109750?text=' + encodeURIComponent(msg);
 
-            // 1. Envoi email en background via formsubmit.co (non bloquant)
-            fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } }).catch(function(){});
+            // Afficher le succès après court délai (laisse le POST partir)
+            setTimeout(function() {
+              form.style.display = 'none';
+              if (success) success.classList.add('show');
+            }, 300);
 
-            // 2. Afficher le message de succès
-            form.style.display = 'none';
-            if (success) success.classList.add('show');
-
-            // 3. Ouvrir WhatsApp (canal principal)
+            // Ouvrir WhatsApp (canal principal)
             setTimeout(function() {
               window.open(waUrl, '_blank');
-            }, 600);
+            }, 700);
           });
         })();
         </script>
