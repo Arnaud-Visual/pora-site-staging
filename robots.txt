@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /assets/favicon/
+Disallow: /onboarding-nathan.html
+Disallow: /wa.html
 
 Sitemap: https://propreourienauto.fr/sitemap.xml
