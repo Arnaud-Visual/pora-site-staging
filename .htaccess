@@ -1,9 +1,15 @@
 # PORA — Hostinger .htaccess
+Options -Indexes
+
 RewriteEngine On
 
 # Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force non-www (www.propreourienauto.fr → propreourienauto.fr)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
 
 # Remove trailing slash (except root)
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -11,6 +17,16 @@ RewriteRule ^(.+)/$ /$1 [R=301,L]
 
 # 404 page
 ErrorDocument 404 /404.html
+
+# Bloquer accès aux fichiers sensibles (.md, .sh, dotfiles, backups)
+<FilesMatch "\.(md|sh|env|bak|sql|log|gitignore|htpasswd)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
 
 # Compression
 <IfModule mod_deflate.c>
