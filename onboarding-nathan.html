@@ -262,13 +262,19 @@
       <p>Le site est désormais sur <strong>propreourienauto.fr</strong> (en cours de propagation DNS, ~24h max). Toi tu te concentres sur 3 trucs : <strong>banque pro · RC Pro · GBP</strong>. Le reste (email, site final), Arnaud gère.</p>
     </div>
 
-    <div class="task done" data-id="formsubmit">
+    <div class="task" data-id="formsubmit">
       <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
       <div class="task-content">
-        <div class="task-title">✅ Formulaire de contact actif</div>
-        <div class="task-desc">Confirmé le 27/04. Chaque demande de devis via le site arrive directement sur <strong>propreourienauto@gmail.com</strong> + WhatsApp s'ouvre en nouvel onglet.</div>
-        <div class="task-meta"><span class="task-priority priority-urgent">✅ Fait le 27/04</span></div>
-        <a href="https://arnaud-visual.github.io/pora-site-staging/contact.html" target="_blank" class="task-link">→ Voir le formulaire</a>
+        <div class="task-title">🟡 Formulaire — réactivation 2 min (action urgente)</div>
+        <div class="task-desc">
+          Le formulaire arrive maintenant <strong>directement sur ton Gmail</strong> <code>propreourienauto@gmail.com</code> (canal fiable, plus de filtre intermédiaire).<br><br>
+          <div style="background:#fef2f2;border-left:3px solid #ef4444;padding:10px 14px;border-radius:6px;font-size:.88rem;color:#7f1d1d;">
+            ⚠️ <strong>Action 2 min :</strong> va sur <a href="https://propreourienauto.fr/contact.html" target="_blank" style="color:var(--blue);font-weight:600;">propreourienauto.fr/contact.html</a>, remplis le formulaire avec un truc bidon, envoie. Tu recevras un email de <strong>team@formsubmit.co</strong> dans ton Gmail (boîte principale, plus en spam) → clique <strong>Activate</strong>. C'est fait.<br>
+            👉 Après ça, toutes les futures demandes arrivent direct dans Gmail.
+          </div>
+        </div>
+        <div class="task-meta"><span class="task-priority priority-urgent">Urgent — 2 min</span></div>
+        <a href="https://propreourienauto.fr/contact.html" target="_blank" class="task-link">→ Tester le formulaire</a>
       </div>
     </div>
 
@@ -318,24 +324,18 @@
       </div>
     </div>
 
-    <div class="task done" data-id="email-pro">
+    <div class="task" data-id="email-pro">
       <div class="task-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="5 12 10 17 20 7"/></svg></div>
       <div class="task-content">
-        <div class="task-title">✅ Email pro contact@propreourienauto.fr ACTIF</div>
+        <div class="task-title">🟡 Email pro contact@propreourienauto.fr — migration en cours</div>
         <div class="task-desc">
-          Configuré le 28/04 par Arnaud via <strong>Forward Email</strong> (gratuit à vie, zéro compte) :<br>
-          - Adresse pro : <strong>contact@propreourienauto.fr</strong> (et n'importe quel `*@propreourienauto.fr`)<br>
-          - Forwarding auto vers : <strong>propreourienauto@gmail.com</strong> (tu vois TOUT dans Gmail)<br>
-          - Le site envoie maintenant les demandes vers cette nouvelle adresse pro<br><br>
-          <div style="background:#fef2f2;border-left:3px solid #ef4444;padding:10px 14px;border-radius:6px;font-size:.88rem;color:#7f1d1d;">
-            ⚠️ <strong>1 action 2 min côté toi (URGENT)</strong> : refait le test du formulaire sur le site → tu recevras dans Gmail un email FormSubmit pour <strong>réactiver</strong> (l'adresse a changé). Clique "Activate" dans cet email. C'est tout.<br>
-            👉 <a href="https://propreourienauto.fr/contact.html" target="_blank" style="color:var(--blue);font-weight:600;">propreourienauto.fr/contact.html</a>
-          </div>
-          <div style="background:#eff6ff;border-left:3px solid #3b82f6;padding:10px 14px;border-radius:6px;font-size:.88rem;color:#1e3a8a;margin-top:8px;">
-            💡 <strong>Optionnel — pour répondre depuis Gmail avec ton adresse pro affichée :</strong> Gmail → Paramètres → Comptes et importation → "Envoyer en tant que" → ajouter contact@propreourienauto.fr (alias). Ça prend 5 min, mais pas obligatoire pour démarrer.
+          <strong>Pour démarrer ton activité tu n'as besoin de rien d'autre que ton Gmail.</strong> Le formulaire site arrive direct dans <code>propreourienauto@gmail.com</code>. Tes premiers clients passent par WhatsApp, c'est largement suffisant.<br><br>
+          <strong>Ce qui se passe en arrière-plan (Arnaud gère) :</strong> l'adresse pro <code>contact@propreourienauto.fr</code> va être migrée vers <strong>Cloudflare Email Routing</strong> (gratuit, signé DKIM, jamais en spam). Le setup actuel "Forward Email gratuit" tombait en spam Gmail à cause d'une signature manquante — d'où le mail FormSubmit jamais reçu, désolé.<br><br>
+          <div style="background:#eff6ff;border-left:3px solid #3b82f6;padding:10px 14px;border-radius:6px;font-size:.88rem;color:#1e3a8a;">
+            💡 <strong>Quand la migration sera faite</strong> (~30-45 min de taf, Arnaud te tient au courant) : tu recevras tout sur <code>contact@propreourienauto.fr</code> direct dans ton Gmail, signé proprement. À ce moment-là on remettra cette adresse comme expéditeur officiel.
           </div>
         </div>
-        <div class="task-meta"><span class="task-priority priority-urgent">✅ Configuré le 28/04</span><span>⏱ 2 min côté toi (réactivation FormSubmit)</span></div>
+        <div class="task-meta"><span class="task-priority priority-cette-semaine">En cours — Arnaud</span></div>
       </div>
     </div>
 
