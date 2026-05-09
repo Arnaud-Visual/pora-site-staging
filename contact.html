@@ -120,11 +120,11 @@
           Form hybride :
           1. Envoi email background via formsubmit.co (activer une fois en validant le 1er email)
           2. Ouverture WhatsApp avec message pré-rempli (canal principal)
-          Endpoint = propreourienauto@gmail.com (Gmail direct) le temps que Cloudflare Email Routing soit activé sur contact@propreourienauto.fr (forwardemail free tier ne signe pas DKIM, drop silencieux Gmail).
+          Endpoint = contact@propreourienauto.fr (Cloudflare Email Routing → DKIM CF → propreourienauto@gmail.com).
         -->
         <!-- iframe caché : reçoit la réponse FormSubmit sans quitter la page -->
         <iframe name="formsubmit-iframe" style="display:none;" aria-hidden="true"></iframe>
-        <form class="form" id="contact-form" action="https://formsubmit.co/propreourienauto@gmail.com" method="POST" target="formsubmit-iframe">
+        <form class="form" id="contact-form" action="https://formsubmit.co/contact@propreourienauto.fr" method="POST" target="formsubmit-iframe">
           <input type="hidden" name="_subject" value="🚗 Demande de devis PORA (site)" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value="https://propreourienauto.fr/contact.html#merci" />
