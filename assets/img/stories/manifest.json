@@ -2,103 +2,265 @@
   {
     "idx": 1,
     "thumb": "assets/img/stories/story-01.jpg",
-    "original": "ChatGPT Image 23 avr. 2026, 13_00_47.png",
-    "size_kb": 68
+    "original_path": "Hero_no_overlay/PORA_duo_gear-inventory-back-of-van_v01.jpg",
+    "label": "Duo, matos inventaire arrière van (HERO, sans overlay)",
+    "usage": "Post Insta carrousel slide 1, ou story 'Le matos'",
+    "size_kb": 727.3
   },
   {
     "idx": 2,
     "thumb": "assets/img/stories/story-02.jpg",
-    "original": "Use_Image_A_202604231257.jpeg",
-    "size_kb": 60
+    "original_path": "Duo/PORA_duo_team-portrait_overlay-nous-contacter_v01.jpg",
+    "label": "Duo team portrait, NATHAN & FLORIAN, CTA Nous contacter",
+    "usage": "Story équipe, à publier en 1er post officiel",
+    "size_kb": 755.8
   },
   {
     "idx": 3,
     "thumb": "assets/img/stories/story-03.jpg",
-    "original": "Use_Image_A_202604231258 (1).jpeg",
-    "size_kb": 63
+    "original_path": "Duo/PORA_duo_sprinter-208-soin-voitures_v01.jpg",
+    "label": "Duo Sprinter + 208, Nathan & Florian prennent soin",
+    "usage": "Story B2B grand format",
+    "size_kb": 747.8
   },
   {
     "idx": 4,
     "thumb": "assets/img/stories/story-04.jpg",
-    "original": "Use_Image_A_202604231258 (2).jpeg",
-    "size_kb": 56
+    "original_path": "Duo/PORA_duo_sprinter-208-soin-voitures_v02.jpg",
+    "label": "Duo Sprinter + 208, variante 2",
+    "usage": "Story alternative",
+    "size_kb": 817.6
   },
   {
     "idx": 5,
     "thumb": "assets/img/stories/story-05.jpg",
-    "original": "Use_Image_A_202604231258 (3).jpeg",
-    "size_kb": 60
+    "original_path": "Duo/PORA_duo_sprinter-208-soin-voitures_v03.jpg",
+    "label": "Duo Sprinter + 208, variante 3",
+    "usage": "Story alternative",
+    "size_kb": 854.2
   },
   {
     "idx": 6,
     "thumb": "assets/img/stories/story-06.jpg",
-    "original": "Use_Image_A_202604231258 (4).jpeg",
-    "size_kb": 69
+    "original_path": "Avant_Apres/PORA_avantapres_interieur_overlay-devis-rapide_v01.jpg",
+    "label": "Avant/Après, console centrale, Devis rapide",
+    "usage": "Story 'résultat visible' indispensable",
+    "size_kb": 766.2
   },
   {
     "idx": 7,
     "thumb": "assets/img/stories/story-07.jpg",
-    "original": "Use_Image_A_202604231258.jpeg",
-    "size_kb": 63
+    "original_path": "Avant_Apres/PORA_avantapres_interieur_overlay-devis-rapide_v02.jpg",
+    "label": "Avant/Après, intérieur, variante 2",
+    "usage": "Alternative",
+    "size_kb": 746.6
   },
   {
     "idx": 8,
     "thumb": "assets/img/stories/story-08.jpg",
-    "original": "Use_Image_A_202604231259 (1).jpeg",
-    "size_kb": 62
+    "original_path": "Avant_Apres/PORA_avantapres_interieur_overlay-devis-rapide_v03.jpg",
+    "label": "Avant/Après, intérieur, variante 3",
+    "usage": "Alternative",
+    "size_kb": 621.7
   },
   {
     "idx": 9,
     "thumb": "assets/img/stories/story-09.jpg",
-    "original": "Use_Image_A_202604231259.jpeg",
-    "size_kb": 58
+    "original_path": "Avant_Apres/PORA_avantapres_interieur_overlay-devis-rapide_v04.jpg",
+    "label": "Avant/Après, intérieur, variante 4",
+    "usage": "Alternative",
+    "size_kb": 645.8
   },
   {
     "idx": 10,
     "thumb": "assets/img/stories/story-10.jpg",
-    "original": "Vertical_9_16_bold_202604231259 (1).jpeg",
-    "size_kb": 46
+    "original_path": "Avant_Apres/PORA_avantapres_interieur_overlay-devis-rapide_v05.jpg",
+    "label": "Avant/Après, intérieur, variante 5",
+    "usage": "Alternative",
+    "size_kb": 724.1
   },
   {
     "idx": 11,
     "thumb": "assets/img/stories/story-11.jpg",
-    "original": "Vertical_9_16_bold_202604231259.jpeg",
-    "size_kb": 41
+    "original_path": "Nathan_solo/PORA_nathan_door-windshield_overlay-image-serieuse_v01.jpg",
+    "label": "Nathan portière + pare-brise, INTÉRIEUR PROPRE IMAGE SÉRIEUSE",
+    "usage": "Story signature Nathan",
+    "size_kb": 841.2
   },
   {
     "idx": 12,
     "thumb": "assets/img/stories/story-12.jpg",
-    "original": "Vertical_9_16_high-conversion_202604231300.jpeg",
-    "size_kb": 70
+    "original_path": "Nathan_solo/PORA_nathan_door-windshield_overlay-image-serieuse_v02.jpg",
+    "label": "Nathan variante 2",
+    "usage": "Alternative",
+    "size_kb": 757.0
   },
   {
     "idx": 13,
     "thumb": "assets/img/stories/story-13.jpg",
-    "original": "Vertical_9_16_premium_202604231300 (1).jpeg",
-    "size_kb": 71
+    "original_path": "Nathan_solo/PORA_nathan_door-windshield_overlay-image-serieuse_v03.jpg",
+    "label": "Nathan variante 3",
+    "usage": "Alternative",
+    "size_kb": 713.3
   },
   {
     "idx": 14,
     "thumb": "assets/img/stories/story-14.jpg",
-    "original": "Vertical_9_16_premium_202604231300 (2).jpeg",
-    "size_kb": 61
+    "original_path": "Nathan_solo/PORA_nathan_interieur-propre_overlay-image-serieuse_v01.jpg",
+    "label": "Nathan intérieur, Un intérieur propre une image sérieuse",
+    "usage": "Story Nathan détaillage intérieur",
+    "size_kb": 763.3
   },
   {
     "idx": 15,
     "thumb": "assets/img/stories/story-15.jpg",
-    "original": "Vertical_9_16_premium_202604231300.jpeg",
-    "size_kb": 58
+    "original_path": "Nathan_solo/PORA_nathan_interieur-propre_overlay-image-serieuse_v02.jpg",
+    "label": "Nathan intérieur variante 2",
+    "usage": "Alternative",
+    "size_kb": 764.5
   },
   {
     "idx": 16,
     "thumb": "assets/img/stories/story-16.jpg",
-    "original": "Vertical_9_16_ultra_202604231259 (1).jpeg",
-    "size_kb": 51
+    "original_path": "Florian_solo/PORA_florian_shampouineuse_overlay-service-propre_v01.jpg",
+    "label": "Florian shampouineuse, Un service propre simple efficace",
+    "usage": "Story signature Florian",
+    "size_kb": 758.9
   },
   {
     "idx": 17,
     "thumb": "assets/img/stories/story-17.jpg",
-    "original": "Vertical_9_16_ultra_202604231259.jpeg",
-    "size_kb": 54
+    "original_path": "Florian_solo/PORA_florian_door-action_overlay-envoie-3-photos_v01.jpg",
+    "label": "Florian portière action, Envoie 3 photos",
+    "usage": "Story Florian + CTA",
+    "size_kb": 721.0
+  },
+  {
+    "idx": 18,
+    "thumb": "assets/img/stories/story-18.jpg",
+    "original_path": "Florian_solo/PORA_florian_door-action_overlay-envoie-3-photos_v02.jpg",
+    "label": "Florian portière variante 2",
+    "usage": "Alternative",
+    "size_kb": 743.8
+  },
+  {
+    "idx": 19,
+    "thumb": "assets/img/stories/story-19.jpg",
+    "original_path": "Duo/PORA_duo_utilitaire_overlay-carte-visite_v01.jpg",
+    "label": "Duo utilitaire Kangoo, Ton utilitaire c'est ta carte de visite",
+    "usage": "Story B2B artisans / utilitaires",
+    "size_kb": 801.6
+  },
+  {
+    "idx": 20,
+    "thumb": "assets/img/stories/story-20.jpg",
+    "original_path": "Duo/PORA_duo_utilitaire_overlay-carte-visite_v02.jpg",
+    "label": "Duo utilitaire variante 2",
+    "usage": "Alternative",
+    "size_kb": 794.3
+  },
+  {
+    "idx": 21,
+    "thumb": "assets/img/stories/story-21.jpg",
+    "original_path": "Duo/PORA_duo_utilitaire_overlay-carte-visite_v03.jpg",
+    "label": "Duo utilitaire variante 3",
+    "usage": "Alternative",
+    "size_kb": 841.9
+  },
+  {
+    "idx": 22,
+    "thumb": "assets/img/stories/story-22.jpg",
+    "original_path": "Duo/PORA_duo_kangoo-organizing_overlay-carte-visite_v01.jpg",
+    "label": "Duo Kangoo organisation matos",
+    "usage": "Story équipe au travail",
+    "size_kb": 833.8
+  },
+  {
+    "idx": 23,
+    "thumb": "assets/img/stories/story-23.jpg",
+    "original_path": "Duo/PORA_duo_kangoo-organizing_overlay-carte-visite_v02.jpg",
+    "label": "Duo Kangoo variante 2",
+    "usage": "Alternative",
+    "size_kb": 782.1
+  },
+  {
+    "idx": 24,
+    "thumb": "assets/img/stories/story-24.jpg",
+    "original_path": "Duo/PORA_duo_kangoo-organizing_overlay-carte-visite_v03.jpg",
+    "label": "Duo Kangoo variante 3",
+    "usage": "Alternative",
+    "size_kb": 844.0
+  },
+  {
+    "idx": 25,
+    "thumb": "assets/img/stories/story-25.jpg",
+    "original_path": "Duo/PORA_duo_peugeot-driveway_overlay-soin-voitures_v01.jpg",
+    "label": "Duo Peugeot 308 driveway, Nathan & Florian prennent soin",
+    "usage": "Story client particulier",
+    "size_kb": 858.1
+  },
+  {
+    "idx": 26,
+    "thumb": "assets/img/stories/story-26.jpg",
+    "original_path": "Duo/PORA_duo_peugeot-driveway_overlay-soin-voitures_v02.jpg",
+    "label": "Duo Peugeot variante 2",
+    "usage": "Alternative",
+    "size_kb": 805.4
+  },
+  {
+    "idx": 27,
+    "thumb": "assets/img/stories/story-27.jpg",
+    "original_path": "Duo/PORA_duo_peugeot-driveway_overlay-soin-voitures_v03.jpg",
+    "label": "Duo Peugeot variante 3",
+    "usage": "Alternative",
+    "size_kb": 837.5
+  },
+  {
+    "idx": 28,
+    "thumb": "assets/img/stories/story-28.jpg",
+    "original_path": "Duo/PORA_duo_peugeot-driveway_overlay-soin-voitures_v04.jpg",
+    "label": "Duo Peugeot variante 4",
+    "usage": "Alternative",
+    "size_kb": 866.2
+  },
+  {
+    "idx": 29,
+    "thumb": "assets/img/stories/story-29.jpg",
+    "original_path": "Duo/PORA_duo_peugeot-driveway-alt_v01.jpg",
+    "label": "Duo Peugeot driveway alt",
+    "usage": "Alternative",
+    "size_kb": 685.2
+  },
+  {
+    "idx": 30,
+    "thumb": "assets/img/stories/story-30.jpg",
+    "original_path": "Duo/PORA_duo_multi-car-driveway_v01.jpg",
+    "label": "Duo flotte plusieurs voitures driveway",
+    "usage": "Story B2B flotte / artisans",
+    "size_kb": 915.3
+  },
+  {
+    "idx": 31,
+    "thumb": "assets/img/stories/story-31.jpg",
+    "original_path": "Duo/PORA_duo_multi-car-driveway_v02.jpg",
+    "label": "Duo flotte variante 2",
+    "usage": "Alternative",
+    "size_kb": 922.1
+  },
+  {
+    "idx": 32,
+    "thumb": "assets/img/stories/story-32.jpg",
+    "original_path": "Duo/PORA_duo_cleaning-car-alt_v01.jpg",
+    "label": "Duo nettoyage voiture variante",
+    "usage": "Alternative",
+    "size_kb": 783.0
+  },
+  {
+    "idx": 33,
+    "thumb": "assets/img/stories/story-33.jpg",
+    "original_path": "Duo/PORA_duo_together_v01.jpg",
+    "label": "Duo together candid",
+    "usage": "Story authentique",
+    "size_kb": 809.0
   }
 ]
