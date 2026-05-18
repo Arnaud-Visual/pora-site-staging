@@ -1,0 +1,323 @@
+{
+  "batch": "PORA_AVANT_APRES_2026_05_19",
+  "generated_at": "2026-05-19",
+  "total": 14,
+  "categories": {
+    "Tapis": [
+      {
+        "slug": "01-tapis-split-classic",
+        "size_jpg_kb": 320.8,
+        "size_webp_kb": 173.5,
+        "size_insta_kb": 410.9,
+        "src_size_kb": 2404.4,
+        "dim": "1254x1254",
+        "template": "Split blanc/navy",
+        "content": "Tapis",
+        "format": "1:1"
+      },
+      {
+        "slug": "02-tapis-drips-minimal",
+        "size_jpg_kb": 270.4,
+        "size_webp_kb": 134.8,
+        "size_insta_kb": 348.3,
+        "src_size_kb": 2193.0,
+        "dim": "1254x1254",
+        "template": "Drips minimaliste",
+        "content": "Tapis",
+        "format": "4:5"
+      },
+      {
+        "slug": "03-tapis-street-difference",
+        "size_jpg_kb": 244.6,
+        "size_webp_kb": 115.0,
+        "size_insta_kb": 315.5,
+        "src_size_kb": 2050.4,
+        "dim": "1254x1254",
+        "template": "Street navy",
+        "content": "Tapis",
+        "format": "1:1"
+      },
+      {
+        "slug": "04-tapis-polaroid-navy",
+        "size_jpg_kb": 299.9,
+        "size_webp_kb": 155.6,
+        "size_insta_kb": 387.7,
+        "src_size_kb": 2259.2,
+        "dim": "1254x1254",
+        "template": "Polaroid navy",
+        "content": "Tapis",
+        "format": "4:5"
+      },
+      {
+        "slug": "09-tapis-hero-grand",
+        "size_jpg_kb": 321.0,
+        "size_webp_kb": 171.9,
+        "size_insta_kb": 412.3,
+        "src_size_kb": 2440.3,
+        "dim": "1254x1254",
+        "template": "Hero grand split",
+        "content": "Tapis",
+        "format": "4:5"
+      },
+      {
+        "slug": "13-tapis-blue-minimal",
+        "size_jpg_kb": 295.3,
+        "size_webp_kb": 156.3,
+        "size_insta_kb": 377.3,
+        "src_size_kb": 2229.2,
+        "dim": "1122x1402",
+        "template": "Blue minimaliste",
+        "content": "Tapis",
+        "format": "4:5"
+      }
+    ],
+    "Sièges": [
+      {
+        "slug": "05-sieges-rayons-navy",
+        "size_jpg_kb": 271.1,
+        "size_webp_kb": 126.3,
+        "size_insta_kb": 353.9,
+        "src_size_kb": 2226.8,
+        "dim": "1254x1254",
+        "template": "Rayons navy",
+        "content": "Sièges",
+        "format": "1:1"
+      },
+      {
+        "slug": "06-sieges-hexagones",
+        "size_jpg_kb": 219.9,
+        "size_webp_kb": 95.8,
+        "size_insta_kb": 287.4,
+        "src_size_kb": 1984.1,
+        "dim": "1254x1254",
+        "template": "Hexagones navy",
+        "content": "Sièges",
+        "format": "4:5"
+      },
+      {
+        "slug": "07-sieges-polaroid-tape",
+        "size_jpg_kb": 323.0,
+        "size_webp_kb": 169.9,
+        "size_insta_kb": 422.4,
+        "src_size_kb": 2497.1,
+        "dim": "1254x1254",
+        "template": "Polaroid tape navy",
+        "content": "Sièges",
+        "format": "1:1"
+      },
+      {
+        "slug": "08-sieges-portrait-navy",
+        "size_jpg_kb": 229.9,
+        "size_webp_kb": 108.4,
+        "size_insta_kb": 299.3,
+        "src_size_kb": 1802.1,
+        "dim": "1254x1254",
+        "template": "Portrait navy clean",
+        "content": "Sièges",
+        "format": "4:5"
+      },
+      {
+        "slug": "10-sieges-frame-clean",
+        "size_jpg_kb": 272.0,
+        "size_webp_kb": 145.4,
+        "size_insta_kb": 348.7,
+        "src_size_kb": 2051.1,
+        "dim": "1254x1254",
+        "template": "Frame clean",
+        "content": "Sièges",
+        "format": "4:5"
+      },
+      {
+        "slug": "14-sieges-overhead-clean",
+        "size_jpg_kb": 259.8,
+        "size_webp_kb": 123.4,
+        "size_insta_kb": 345.1,
+        "src_size_kb": 2106.2,
+        "dim": "1122x1402",
+        "template": "Overhead clean",
+        "content": "Sièges",
+        "format": "1:1"
+      }
+    ],
+    "Tapis + Sièges": [
+      {
+        "slug": "11-combo-tapis-sieges-quad",
+        "size_jpg_kb": 326.5,
+        "size_webp_kb": 176.0,
+        "size_insta_kb": 422.2,
+        "src_size_kb": 2386.1,
+        "dim": "1254x1254",
+        "template": "Quad layout combo",
+        "content": "Tapis + Sièges",
+        "format": "4:5"
+      },
+      {
+        "slug": "12-carrousel-swipe-tapis-sieges",
+        "size_jpg_kb": 279.5,
+        "size_webp_kb": 133.8,
+        "size_insta_kb": 366.6,
+        "src_size_kb": 2311.4,
+        "dim": "1122x1402",
+        "template": "Carrousel swipe",
+        "content": "Tapis + Sièges",
+        "format": "4:5"
+      }
+    ]
+  },
+  "files": [
+    {
+      "slug": "01-tapis-split-classic",
+      "size_jpg_kb": 320.8,
+      "size_webp_kb": 173.5,
+      "size_insta_kb": 410.9,
+      "src_size_kb": 2404.4,
+      "dim": "1254x1254",
+      "template": "Split blanc/navy",
+      "content": "Tapis",
+      "format": "1:1"
+    },
+    {
+      "slug": "02-tapis-drips-minimal",
+      "size_jpg_kb": 270.4,
+      "size_webp_kb": 134.8,
+      "size_insta_kb": 348.3,
+      "src_size_kb": 2193.0,
+      "dim": "1254x1254",
+      "template": "Drips minimaliste",
+      "content": "Tapis",
+      "format": "4:5"
+    },
+    {
+      "slug": "03-tapis-street-difference",
+      "size_jpg_kb": 244.6,
+      "size_webp_kb": 115.0,
+      "size_insta_kb": 315.5,
+      "src_size_kb": 2050.4,
+      "dim": "1254x1254",
+      "template": "Street navy",
+      "content": "Tapis",
+      "format": "1:1"
+    },
+    {
+      "slug": "04-tapis-polaroid-navy",
+      "size_jpg_kb": 299.9,
+      "size_webp_kb": 155.6,
+      "size_insta_kb": 387.7,
+      "src_size_kb": 2259.2,
+      "dim": "1254x1254",
+      "template": "Polaroid navy",
+      "content": "Tapis",
+      "format": "4:5"
+    },
+    {
+      "slug": "05-sieges-rayons-navy",
+      "size_jpg_kb": 271.1,
+      "size_webp_kb": 126.3,
+      "size_insta_kb": 353.9,
+      "src_size_kb": 2226.8,
+      "dim": "1254x1254",
+      "template": "Rayons navy",
+      "content": "Sièges",
+      "format": "1:1"
+    },
+    {
+      "slug": "06-sieges-hexagones",
+      "size_jpg_kb": 219.9,
+      "size_webp_kb": 95.8,
+      "size_insta_kb": 287.4,
+      "src_size_kb": 1984.1,
+      "dim": "1254x1254",
+      "template": "Hexagones navy",
+      "content": "Sièges",
+      "format": "4:5"
+    },
+    {
+      "slug": "07-sieges-polaroid-tape",
+      "size_jpg_kb": 323.0,
+      "size_webp_kb": 169.9,
+      "size_insta_kb": 422.4,
+      "src_size_kb": 2497.1,
+      "dim": "1254x1254",
+      "template": "Polaroid tape navy",
+      "content": "Sièges",
+      "format": "1:1"
+    },
+    {
+      "slug": "08-sieges-portrait-navy",
+      "size_jpg_kb": 229.9,
+      "size_webp_kb": 108.4,
+      "size_insta_kb": 299.3,
+      "src_size_kb": 1802.1,
+      "dim": "1254x1254",
+      "template": "Portrait navy clean",
+      "content": "Sièges",
+      "format": "4:5"
+    },
+    {
+      "slug": "09-tapis-hero-grand",
+      "size_jpg_kb": 321.0,
+      "size_webp_kb": 171.9,
+      "size_insta_kb": 412.3,
+      "src_size_kb": 2440.3,
+      "dim": "1254x1254",
+      "template": "Hero grand split",
+      "content": "Tapis",
+      "format": "4:5"
+    },
+    {
+      "slug": "10-sieges-frame-clean",
+      "size_jpg_kb": 272.0,
+      "size_webp_kb": 145.4,
+      "size_insta_kb": 348.7,
+      "src_size_kb": 2051.1,
+      "dim": "1254x1254",
+      "template": "Frame clean",
+      "content": "Sièges",
+      "format": "4:5"
+    },
+    {
+      "slug": "11-combo-tapis-sieges-quad",
+      "size_jpg_kb": 326.5,
+      "size_webp_kb": 176.0,
+      "size_insta_kb": 422.2,
+      "src_size_kb": 2386.1,
+      "dim": "1254x1254",
+      "template": "Quad layout combo",
+      "content": "Tapis + Sièges",
+      "format": "4:5"
+    },
+    {
+      "slug": "12-carrousel-swipe-tapis-sieges",
+      "size_jpg_kb": 279.5,
+      "size_webp_kb": 133.8,
+      "size_insta_kb": 366.6,
+      "src_size_kb": 2311.4,
+      "dim": "1122x1402",
+      "template": "Carrousel swipe",
+      "content": "Tapis + Sièges",
+      "format": "4:5"
+    },
+    {
+      "slug": "13-tapis-blue-minimal",
+      "size_jpg_kb": 295.3,
+      "size_webp_kb": 156.3,
+      "size_insta_kb": 377.3,
+      "src_size_kb": 2229.2,
+      "dim": "1122x1402",
+      "template": "Blue minimaliste",
+      "content": "Tapis",
+      "format": "4:5"
+    },
+    {
+      "slug": "14-sieges-overhead-clean",
+      "size_jpg_kb": 259.8,
+      "size_webp_kb": 123.4,
+      "size_insta_kb": 345.1,
+      "src_size_kb": 2106.2,
+      "dim": "1122x1402",
+      "template": "Overhead clean",
+      "content": "Sièges",
+      "format": "1:1"
+    }
+  ]
+}

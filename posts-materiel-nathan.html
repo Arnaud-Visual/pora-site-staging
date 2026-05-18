@@ -181,6 +181,118 @@
     }
     .foot a { color: var(--blue); text-decoration: none; font-weight: 600; }
 
+    /* Quick nav */
+    .quicknav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 10px 0;
+      margin: 0 -20px 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .quicknav-inner { display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+    .quicknav a {
+      flex: 0 0 auto;
+      background: var(--gray-100);
+      color: var(--navy-deep);
+      padding: 8px 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .quicknav a:active { background: var(--blue); color: white; }
+
+    /* Grid avant/apres */
+    .ap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .ap-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .ap-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+      background: var(--gray-100);
+    }
+    .ap-card-meta {
+      padding: 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ap-template {
+      font-size: .75rem;
+      color: var(--gray-600);
+      font-weight: 600;
+    }
+    .ap-actions { display: flex; gap: 6px; margin-top: auto; }
+    .ap-btn {
+      flex: 1;
+      padding: 8px 6px;
+      border-radius: 6px;
+      border: 0;
+      font-family: inherit;
+      font-size: .78rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .ap-btn-dl { background: var(--blue); color: white; }
+    .ap-btn-dl:active { background: var(--blue-dark); }
+    .ap-btn-sh { background: var(--gray-100); color: var(--navy-deep); border: 1px solid var(--gray-200); }
+    .ap-btn-sh:active { background: var(--gray-200); }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: var(--shadow-lg); }
+    #lightbox .close-x {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: white;
+      color: var(--navy-deep);
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
     /* Toast */
     #toast {
       position: fixed;
@@ -217,6 +329,17 @@
 
 <main class="container">
 
+  <nav class="quicknav" aria-label="Accès rapide">
+    <div class="quicknav-inner">
+      <a href="#avant-apres">🆕 Avant/Après (14)</a>
+      <a href="#posts-materiel">📦 Matériel (3)</a>
+      <a href="#post-fb">📘 Facebook</a>
+      <a href="#post-gbp">🔍 Google</a>
+      <a href="#post-story34">📱 Stories</a>
+      <a href="onboarding-nathan.html">🏠 Onboarding</a>
+    </div>
+  </nav>
+
   <div class="howto">
     <strong>Comment publier sur Insta en 30 secondes</strong>
     <ol>
@@ -226,7 +349,247 @@
     </ol>
   </div>
 
-  <h2 class="section-h">3 posts Instagram</h2>
+  <!-- ====================== AVANT/APRÈS ====================== -->
+  <h2 class="section-h" id="avant-apres">🆕 Pack avant/après, 14 visuels au choix</h2>
+  <p class="section-sub">Tu choisis le style qui te plaît, tu télécharges, tu copies la légende correspondante. Pack du 19/05/2026.</p>
+
+  <!-- TAPIS -->
+  <h3 style="margin: 24px 0 8px; color: var(--navy-deep); font-size: 1.1rem;">🧽 Catégorie TAPIS (6 visuels)</h3>
+
+  <article class="post" style="margin-bottom: 16px;">
+    <div class="post-body">
+      <span class="post-when">Légende universelle Tapis · à copier pour TOUS les visuels tapis</span>
+      <h3 class="post-title" style="font-size: 1rem;">📋 Légende prête</h3>
+      <div class="post-caption" id="cap-tapis">Avant / Après tapis voiture.
+
+Sur les tapis, l'aspirateur seul ne suffit pas. Il y a la poussière qui reste incrustée dans le caoutchouc, les taches qui collent, et l'odeur qui finit par s'installer.
+
+Méthode : aspiration profonde, prétrempage, brossage, extraction. Le tout sans abîmer le revêtement.
+
+Résultat : un tapis qui retrouve son aspect d'origine.
+
+Devis WhatsApp en 1h, à partir de 60€. Je me déplace chez toi sur Cournonsec, Montpellier, Sète et 30 km alentour.
+
+📱 +33 7 61 10 97 50
+
+#AvantApresAuto #NettoyageInterieurAuto #TapisVoiture #PropreOuRienAuto #Cournonsec #Montpellier #Sète #Hérault #DetailingAuto #ArtisanLocal #VoiturePropre</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="cap-tapis">📋 Copier la légende Tapis</button>
+      </div>
+    </div>
+  </article>
+
+  <div class="ap-grid">
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/01-tapis-split-classic.jpg" alt="Avant/Après tapis split classic" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Split blanc/navy · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/01-tapis-split-classic-insta.jpg" download="pora-avant-apres-tapis-01.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/01-tapis-split-classic-insta.jpg" data-cap="cap-tapis">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/02-tapis-drips-minimal.jpg" alt="Avant/Après tapis drips minimal" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Drips minimaliste · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/02-tapis-drips-minimal-insta.jpg" download="pora-avant-apres-tapis-02.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/02-tapis-drips-minimal-insta.jpg" data-cap="cap-tapis">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/03-tapis-street-difference.jpg" alt="Avant/Après tapis street difference" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Street navy · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/03-tapis-street-difference-insta.jpg" download="pora-avant-apres-tapis-03.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/03-tapis-street-difference-insta.jpg" data-cap="cap-tapis">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/04-tapis-polaroid-navy.jpg" alt="Avant/Après tapis polaroid navy" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Polaroid navy · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/04-tapis-polaroid-navy-insta.jpg" download="pora-avant-apres-tapis-04.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/04-tapis-polaroid-navy-insta.jpg" data-cap="cap-tapis">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/09-tapis-hero-grand.jpg" alt="Avant/Après tapis hero grand" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Hero grand split · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/09-tapis-hero-grand-insta.jpg" download="pora-avant-apres-tapis-09.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/09-tapis-hero-grand-insta.jpg" data-cap="cap-tapis">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/13-tapis-blue-minimal.jpg" alt="Avant/Après tapis blue minimal" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Blue minimaliste · 4:5</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/13-tapis-blue-minimal-insta.jpg" download="pora-avant-apres-tapis-13.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/13-tapis-blue-minimal-insta.jpg" data-cap="cap-tapis">📤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIEGES -->
+  <h3 style="margin: 32px 0 8px; color: var(--navy-deep); font-size: 1.1rem;">💺 Catégorie SIÈGES (6 visuels)</h3>
+
+  <article class="post" style="margin-bottom: 16px;">
+    <div class="post-body">
+      <span class="post-when">Légende universelle Sièges · à copier pour TOUS les visuels sièges</span>
+      <h3 class="post-title" style="font-size: 1rem;">📋 Légende prête</h3>
+      <div class="post-caption" id="cap-sieges">Avant / Après sièges en tissu.
+
+Sur un siège tissu, la saleté est incrustée DANS la fibre. L'aspi seul ne suffit pas. Il faut extraire avec un produit qui mousse + une dépression forte. C'est ce que fait la shampouineuse.
+
+Résultat : tu retrouves le tissu d'origine, plus la couche de crasse accumulée.
+
+C'est ce qu'on inclut dans la formule "Intérieur + sièges" à 85€.
+
+Devis WhatsApp en 1h. Je me déplace chez toi sur Cournonsec, Montpellier, Sète et 30 km alentour.
+
+📱 +33 7 61 10 97 50
+
+#AvantApresAuto #SiegesTissu #ShampouineusePro #NettoyageInterieurAuto #PropreOuRienAuto #Cournonsec #Montpellier #Sète #Hérault #DetailingAuto #ArtisanLocal #VoiturePropre</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="cap-sieges">📋 Copier la légende Sièges</button>
+      </div>
+    </div>
+  </article>
+
+  <div class="ap-grid">
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/05-sieges-rayons-navy.jpg" alt="Avant/Après sièges rayons navy" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Rayons navy · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/05-sieges-rayons-navy-insta.jpg" download="pora-avant-apres-sieges-05.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/05-sieges-rayons-navy-insta.jpg" data-cap="cap-sieges">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/06-sieges-hexagones.jpg" alt="Avant/Après sièges hexagones" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Hexagones navy · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/06-sieges-hexagones-insta.jpg" download="pora-avant-apres-sieges-06.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/06-sieges-hexagones-insta.jpg" data-cap="cap-sieges">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/07-sieges-polaroid-tape.jpg" alt="Avant/Après sièges polaroid tape" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Polaroid tape · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/07-sieges-polaroid-tape-insta.jpg" download="pora-avant-apres-sieges-07.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/07-sieges-polaroid-tape-insta.jpg" data-cap="cap-sieges">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/08-sieges-portrait-navy.jpg" alt="Avant/Après sièges portrait navy" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Portrait navy · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/08-sieges-portrait-navy-insta.jpg" download="pora-avant-apres-sieges-08.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/08-sieges-portrait-navy-insta.jpg" data-cap="cap-sieges">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/10-sieges-frame-clean.jpg" alt="Avant/Après sièges frame clean" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Frame clean · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/10-sieges-frame-clean-insta.jpg" download="pora-avant-apres-sieges-10.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/10-sieges-frame-clean-insta.jpg" data-cap="cap-sieges">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/14-sieges-overhead-clean.jpg" alt="Avant/Après sièges overhead clean" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Overhead clean · 4:5</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/14-sieges-overhead-clean-insta.jpg" download="pora-avant-apres-sieges-14.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/14-sieges-overhead-clean-insta.jpg" data-cap="cap-sieges">📤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBO -->
+  <h3 style="margin: 32px 0 8px; color: var(--navy-deep); font-size: 1.1rem;">🎯 Catégorie COMBO Tapis + Sièges (2 visuels)</h3>
+
+  <article class="post" style="margin-bottom: 16px;">
+    <div class="post-body">
+      <span class="post-when">Légende universelle Combo · à copier pour les 2 visuels combo</span>
+      <h3 class="post-title" style="font-size: 1rem;">📋 Légende prête</h3>
+      <div class="post-caption" id="cap-combo">Avant / Après formule complète intérieur.
+
+Tapis + sièges + plastiques + vitres + finitions. On s'occupe de tout, en une seule prestation, chez toi.
+
+3 formules selon l'état :
+• Intérieur essentiel 60€
+• Intérieur + sièges 85€
+• Remise à niveau 110€
+
+Méthode pro : aspiration profonde, shampouinage, brossage des zones fines, finition microfibres. Du matériel d'artisan, pas du bricolage.
+
+Devis WhatsApp en 1h. Je me déplace chez toi sur Cournonsec, Montpellier, Sète et 30 km alentour.
+
+📱 +33 7 61 10 97 50
+
+#AvantApresAuto #NettoyageInterieurComplet #PropreOuRienAuto #Cournonsec #Montpellier #Sète #Hérault #DetailingAuto #ArtisanLocal #VoiturePropre #DomicileMobile</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="cap-combo">📋 Copier la légende Combo</button>
+      </div>
+    </div>
+  </article>
+
+  <div class="ap-grid">
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/11-combo-tapis-sieges-quad.jpg" alt="Avant/Après combo quad tapis sièges" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Quad layout · 1:1</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/11-combo-tapis-sieges-quad-insta.jpg" download="pora-avant-apres-combo-11.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/11-combo-tapis-sieges-quad-insta.jpg" data-cap="cap-combo">📤</button>
+        </div>
+      </div>
+    </div>
+    <div class="ap-card">
+      <img src="assets/img/avant-apres/12-carrousel-swipe-tapis-sieges.jpg" alt="Avant/Après carrousel swipe" loading="lazy" onclick="openLB(this.src)" />
+      <div class="ap-card-meta">
+        <span class="ap-template">Carrousel swipe · 4:5</span>
+        <div class="ap-actions">
+          <a class="ap-btn ap-btn-dl" href="assets/img/avant-apres/12-carrousel-swipe-tapis-sieges-insta.jpg" download="pora-avant-apres-combo-12.jpg">⬇️</a>
+          <button class="ap-btn ap-btn-sh" data-share data-img="assets/img/avant-apres/12-carrousel-swipe-tapis-sieges-insta.jpg" data-cap="cap-combo">📤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="howto" style="background: #e7f0ff; border-left-color: var(--blue);">
+    <strong>💡 Conseil de pro</strong><br>
+    Publie 1 avant/après par semaine pendant 6 semaines. Alterne tapis, sièges, combo. Tu construis ta crédibilité visuelle sans saturer ton feed.
+  </div>
+
+  <!-- ====================== POSTS MATÉRIEL ====================== -->
+  <h2 class="section-h" id="posts-materiel">3 posts Instagram matériel</h2>
   <p class="section-sub">Planning conseillé : mardi 19h (Post 1), jeudi 19h (Post 2), samedi 11h (Post 3).</p>
 
   <!-- POST 1 FLATLAY -->
@@ -406,7 +769,28 @@ Devis WhatsApp en 1h.</div>
 
 <div id="toast" role="status" aria-live="polite">Copié dans le presse papier !</div>
 
+<div id="lightbox" onclick="closeLB(event)">
+  <button class="close-x" onclick="closeLB(event)" aria-label="Fermer">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
 <script>
+function openLB(src) {
+  const lb = document.getElementById('lightbox');
+  const im = document.getElementById('lightbox-img');
+  im.src = src.replace(/\.(jpg|webp)$/, '-insta.jpg').replace('-insta-insta', '-insta');
+  // fallback to original src if insta variant missing
+  im.onerror = function () { im.onerror = null; im.src = src; };
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB(e) {
+  if (e && e.target && e.target.tagName === 'IMG' && e.target.id === 'lightbox-img') return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLB(); });
+
 (function () {
   const toast = document.getElementById('toast');
   let toastTimer;
