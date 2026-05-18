@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Pack matériel, posts prêts à publier, Nathan</title>
+  <meta name="description" content="3 posts Insta + Facebook + GBP, copier coller direct, télécharger en 1 clic. Pack du 18/05/2026." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#005EDF" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-deep: #001030;
+      --navy: #082868;
+      --blue: #005EDF;
+      --blue-dark: #0048b0;
+      --blue-light: #e7f0ff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --white: #ffffff;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger: #dc2626;
+      --shadow: 0 4px 12px rgba(0, 16, 48, 0.08);
+      --shadow-lg: 0 12px 40px rgba(0, 16, 48, 0.16);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.55;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    .top {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 32px 0 28px;
+    }
+    .top h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .top .sub {
+      margin: 0;
+      font-size: 1rem;
+      color: rgba(255,255,255,.88);
+    }
+    .badge-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      background: rgba(255,255,255,.18);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    /* Howto card */
+    .howto {
+      background: #fff8e6;
+      border-left: 4px solid var(--warning);
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      margin: 24px 0 16px;
+      font-size: .95rem;
+    }
+    .howto strong { color: var(--navy-deep); }
+    .howto ol { margin: 8px 0 0 18px; padding: 0; }
+    .howto li { margin: 4px 0; }
+
+    /* Post card */
+    .post {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .post-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; background: var(--gray-100); }
+    .post-body { padding: 20px 18px; }
+    .post-title {
+      margin: 0 0 4px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy-deep);
+    }
+    .post-when {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .post-caption {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: .92rem;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      margin: 0 0 12px;
+      max-height: 280px;
+      overflow-y: auto;
+      color: var(--gray-800);
+    }
+    .post-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      flex: 1 1 auto;
+      min-width: 140px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 0;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all .15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-copy { background: var(--blue); color: white; }
+    .btn-copy:hover, .btn-copy:active { background: var(--blue-dark); }
+    .btn-copy.copied { background: var(--success); }
+    .btn-download { background: var(--navy-deep); color: white; }
+    .btn-download:hover, .btn-download:active { background: var(--navy); }
+    .btn-share { background: var(--gray-100); color: var(--navy-deep); border: 1px solid var(--gray-200); }
+    .btn-share:hover, .btn-share:active { background: var(--gray-200); }
+
+    /* Section header */
+    .section-h {
+      margin: 32px 0 8px;
+      font-size: 1.3rem;
+      color: var(--navy-deep);
+      font-weight: 800;
+    }
+    .section-sub {
+      color: var(--gray-600);
+      font-size: .95rem;
+      margin: 0 0 16px;
+    }
+
+    /* Footer */
+    .foot {
+      margin: 40px 0 60px;
+      padding: 20px;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-size: .9rem;
+      color: var(--gray-600);
+    }
+    .foot a { color: var(--blue); text-decoration: none; font-weight: 600; }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--success);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: .95rem;
+      box-shadow: var(--shadow-lg);
+      transition: transform .3s ease;
+      z-index: 100;
+      pointer-events: none;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <h1>📦 Pack matériel, prêt à publier</h1>
+    <p class="sub">3 posts Insta + 1 Facebook + 1 Google Business. Pack généré le 18/05/2026.</p>
+    <div class="badge-row">
+      <span class="badge">📋 Copier la légende</span>
+      <span class="badge">⬇️ Télécharger la photo</span>
+      <span class="badge">🚀 Publie en 30 secondes</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="howto">
+    <strong>Comment publier sur Insta en 30 secondes</strong>
+    <ol>
+      <li>Appuie sur <strong>⬇️ Télécharger la photo</strong> (sur mobile, appui long sur l'image puis Enregistrer).</li>
+      <li>Appuie sur <strong>📋 Copier la légende</strong>.</li>
+      <li>Ouvre Instagram, choisis la photo dans ta galerie, colle la légende. Publie.</li>
+    </ol>
+  </div>
+
+  <h2 class="section-h">3 posts Instagram</h2>
+  <p class="section-sub">Planning conseillé : mardi 19h (Post 1), jeudi 19h (Post 2), samedi 11h (Post 3).</p>
+
+  <!-- POST 1 FLATLAY -->
+  <article class="post" id="post-1">
+    <img class="post-img" src="assets/img/materiel/site-materiel-flatlay.jpg" alt="Post 1 matériel flatlay" loading="lazy" />
+    <div class="post-body">
+      <span class="post-when">Mardi 19h · Instagram + Facebook + WhatsApp Statut</span>
+      <h3 class="post-title">Post 1, "Le matos qui arrive chez toi"</h3>
+      <div class="post-caption" id="cap1">Le matos qui arrive chez toi.
+
+3 Karcher pro, des microfibres triées par usage, des brosses détaillage, un drill brush, des produits dédiés. Pas du grande surface. Pas du bricolage.
+
+Je préfère investir dans le matériel et facturer 60€ honnêtes, que rogner et te livrer un travail moyen.
+
+Tu veux voir ce que ça donne sur ta voiture ? WhatsApp en bio.
+
+— Nathan, Propre ou Rien Auto, Cournonsec
+
+#NettoyageInterieurAuto #DetailingAuto #Cournonsec #Montpellier #Sète #Hérault #34660 #VoiturePropre #AspirationVoiture #ShampouineusePro #PropreOuRienAuto #ArtisanLocal #MicroEntreprise #Domicile #Mobile</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="cap1">📋 Copier la légende</button>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-flatlay.jpg" download="propre-ou-rien-auto-post-1-flatlay.jpg">⬇️ Télécharger la photo</a>
+        <button class="btn btn-share" data-cap="cap1" data-img="assets/img/materiel/site-materiel-flatlay.jpg" data-share>📤 Partager</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 2 BRANDED -->
+  <article class="post" id="post-2">
+    <img class="post-img" src="assets/img/materiel/site-materiel-branded.jpg" alt="Post 2 produits brandés" loading="lazy" />
+    <div class="post-body">
+      <span class="post-when">Jeudi 19h · Instagram + Facebook + WhatsApp Statut</span>
+      <h3 class="post-title">Post 2, "Mes produits portent mon nom"</h3>
+      <div class="post-caption" id="cap2">Mes produits portent mon nom.
+
+Quand tu prends rendez vous, ce que je sors devant toi, c'est ça : du matériel pro Karcher et mes propres produits étiquetés Propre ou Rien Auto. Détergent intérieur, nettoyant plastiques, désodorisant doux, et un petit secret pour les sièges tissu.
+
+C'est pas du shampoing dispatché en bidons anonymes. C'est ce que J'AI CHOISI d'utiliser sur ta voiture.
+
+Devis WhatsApp en 1h, à partir de 60€. Lien en bio.
+
+#PropreOuRienAuto #DetailingFrance #DetailingMontpellier #Cournonsec #VoiturePropre #NettoyageInterieurAuto #ArtisanAuto #JeuneEntrepreneur #Hérault #LocalBusiness #ProduitsPros #Microfibres #Karcher</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="cap2">📋 Copier la légende</button>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-branded.jpg" download="propre-ou-rien-auto-post-2-branded.jpg">⬇️ Télécharger la photo</a>
+        <button class="btn btn-share" data-cap="cap2" data-img="assets/img/materiel/site-materiel-branded.jpg" data-share>📤 Partager</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 3 LIFESTYLE -->
+  <article class="post" id="post-3">
+    <img class="post-img" src="assets/img/materiel/site-materiel-lifestyle.jpg" alt="Post 3 lifestyle mains" loading="lazy" />
+    <div class="post-body">
+      <span class="post-when">Samedi 11h · Instagram + Facebook + WhatsApp Statut</span>
+      <h3 class="post-title">Post 3, "Geste numéro 1, la bonne microfibre"</h3>
+      <div class="post-caption" id="cap3">Geste numéro 1 : choisir la bonne microfibre.
+
+J'ai 3 codes couleur :
+🔵 bleu pour les vitres
+🩷 rose pour les plastiques intérieurs
+🟢 vert pour les sièges et tissus
+
+Une microfibre vitres qui passe sur un plastique laisse des micro rayures que tu vois deux mois plus tard. Une qui passe sur un siège après une vitre laisse un voile gras.
+
+Ce qu'on appelle "faire les choses bien", c'est aussi ça.
+
+Premier client ? Je me déplace chez toi sur Cournonsec, Montpellier, Sète et 30 km alentour. WhatsApp en bio.
+
+#DetailingTips #MicrofibresPro #NettoyageAuto #PropreOuRienAuto #Cournonsec #Montpellier #Sète #ArtisanLocal #VoitureFamiliale #VoiturePropre #ConseilDetailing #Hérault</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="cap3">📋 Copier la légende</button>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-lifestyle.jpg" download="propre-ou-rien-auto-post-3-lifestyle.jpg">⬇️ Télécharger la photo</a>
+        <button class="btn btn-share" data-cap="cap3" data-img="assets/img/materiel/site-materiel-lifestyle.jpg" data-share>📤 Partager</button>
+      </div>
+    </div>
+  </article>
+
+  <h2 class="section-h">1 post Facebook (carrousel)</h2>
+  <p class="section-sub">Si Facebook lié à Insta dans Paramètres Meta, le carrousel se publie automatiquement. Mercredi 18h.</p>
+
+  <article class="post" id="post-fb">
+    <img class="post-img" src="assets/img/materiel/site-materiel-pack.jpg" alt="Post Facebook carrousel" loading="lazy" style="aspect-ratio: 16/9;" />
+    <div class="post-body">
+      <span class="post-when">Mercredi 18h · Facebook</span>
+      <h3 class="post-title">Post Facebook carrousel (3 photos)</h3>
+      <div class="post-caption" id="capfb">Le matos qu'on amène chez vous, vu de près.
+
+Beaucoup nous demandent "tu utilises quoi ?". Voilà la réponse, sans filtre.
+
+3 Karcher pro : nettoyeur vitres SE, aspirateur eau et poussière, injecteur extracteur. Une caisse de microfibres triées par couleur selon l'usage. Des brosses détaillage qualité atelier. Un drill brush pour les sièges incrustés. Et des produits qu'on a sélectionnés un par un, certains étiquetés à notre nom.
+
+On préfère investir dans le matériel et facturer des prix justes (60€ à 110€ selon l'état), plutôt que rogner et bâcler.
+
+On se déplace à votre domicile sur Cournonsec, Montpellier, Sète et 30 km alentour. Devis en 1 heure sur WhatsApp.
+
+📱 +33 7 61 10 97 50
+🌐 propreourienauto.fr</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="capfb">📋 Copier la légende</button>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-branded.jpg" download="fb-carrousel-photo-1-branded.jpg">⬇️ Photo 1 brandée</a>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-flatlay.jpg" download="fb-carrousel-photo-2-flatlay.jpg">⬇️ Photo 2 flatlay</a>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-lifestyle.jpg" download="fb-carrousel-photo-3-lifestyle.jpg">⬇️ Photo 3 lifestyle</a>
+      </div>
+    </div>
+  </article>
+
+  <h2 class="section-h">1 post Google Business Profile</h2>
+  <p class="section-sub">Type Mise à jour, durée 7 jours. Renouveler à J+7 en re-publiant la même chose ou la variante.</p>
+
+  <article class="post" id="post-gbp">
+    <img class="post-img" src="assets/img/materiel/site-materiel-branded.jpg" alt="Post Google Business Profile" loading="lazy" style="aspect-ratio: 1/1;" />
+    <div class="post-body">
+      <span class="post-when">À publier dans la semaine · Google Business Profile</span>
+      <h3 class="post-title">Post Google Business (700 char max)</h3>
+      <div class="post-caption" id="capgbp">Notre matériel pro, visible chez vous le jour J.
+
+3 Karcher (nettoyeur vitres, aspirateur eau et poussière, injecteur extracteur), microfibres triées par usage, brosses détaillage, drill brush, produits dédiés dont certains à notre nom.
+
+Pas du grande surface. Du matos d'artisan, transporté propre, utilisé propre.
+
+Tarifs intérieur :
+• Essentiel 60€
+• Intérieur + sièges 85€
+• Remise à niveau dès 110€
+
+Devis WhatsApp en 1h.</div>
+      <div class="post-actions">
+        <button class="btn btn-copy" data-cap="capgbp">📋 Copier la légende</button>
+        <a class="btn btn-download" href="assets/img/materiel/site-materiel-branded.jpg" download="gbp-post-materiel-branded.jpg">⬇️ Télécharger la photo</a>
+      </div>
+      <p style="margin: 14px 0 0; font-size: .85rem; color: var(--gray-600);">
+        <strong>CTA bouton</strong> : Appeler → +33 7 61 10 97 50<br>
+        <strong>Lien</strong> : propreourienauto.fr/services.html#materiel
+      </p>
+    </div>
+  </article>
+
+  <h2 class="section-h">Bonus, 2 nouvelles stories matos</h2>
+  <p class="section-sub">Pack stories passe de 33 à 35. Tu retrouves les 35 stories dans ton onglet 🎬 Stories de l'<a href="onboarding-nathan.html#stories" style="color: var(--blue); font-weight: 600;">onboarding</a>.</p>
+
+  <article class="post" id="post-story34">
+    <img class="post-img" src="assets/img/stories/story-34.jpg" alt="Story 34 matos studio flat" loading="lazy" style="aspect-ratio: 9/16; max-height: 480px; object-fit: cover;" />
+    <div class="post-body">
+      <span class="post-when">Dimanche · Instagram Story + WhatsApp Statut</span>
+      <h3 class="post-title">Story 34, matos flat blanc</h3>
+      <p style="margin: 0 0 12px; color: var(--gray-600); font-size: .92rem;">
+        Stickers à ajouter dans l'app : 🧰 en haut, texte "MON MATOS PRO", sticker question "Tu veux voir ça chez toi ?", sticker lien WhatsApp.
+      </p>
+      <div class="post-actions">
+        <a class="btn btn-download" href="assets/img/stories/story-34.jpg" download="propre-ou-rien-auto-story-34-matos-flat.jpg">⬇️ Télécharger la story</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="post" id="post-story35">
+    <img class="post-img" src="assets/img/stories/story-35.jpg" alt="Story 35 matos navy PORA" loading="lazy" style="aspect-ratio: 9/16; max-height: 480px; object-fit: cover;" />
+    <div class="post-body">
+      <span class="post-when">Mardi · Instagram Story + WhatsApp Statut</span>
+      <h3 class="post-title">Story 35, matos navy PORA brand</h3>
+      <p style="margin: 0 0 12px; color: var(--gray-600); font-size: .92rem;">
+        Stickers à ajouter dans l'app : logo PORA centre haut, texte gros bleu "PROPRE OU RIEN", sous titre "Le matos qui fait la différence", sticker compte à rebours intervention, sticker WhatsApp bas.
+      </p>
+      <div class="post-actions">
+        <a class="btn btn-download" href="assets/img/stories/story-35.jpg" download="propre-ou-rien-auto-story-35-matos-navy.jpg">⬇️ Télécharger la story</a>
+      </div>
+    </div>
+  </article>
+
+  <div class="foot">
+    <p style="margin: 0 0 8px;"><strong>Reste à activer 1 fois pour toutes</strong></p>
+    <p style="margin: 0;">Paramètres Insta &gt; Centre de comptes &gt; Comptes &gt; Lier Facebook. Une fois lié, les posts Insta se publient aussi sur Facebook automatiquement.</p>
+    <p style="margin: 12px 0 0; color: var(--gray-400); font-size: .8rem;">Pack généré le 18/05/2026 par Arnaud · <a href="onboarding-nathan.html">Retour à l'onboarding</a></p>
+  </div>
+
+</main>
+
+<div id="toast" role="status" aria-live="polite">Copié dans le presse papier !</div>
+
+<script>
+(function () {
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      } catch (e) { reject(e); }
+    });
+  }
+
+  document.querySelectorAll('.btn-copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const targetId = btn.getAttribute('data-cap');
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      const text = el.textContent || el.innerText || '';
+      copyText(text).then(function () {
+        btn.classList.add('copied');
+        btn.textContent = '✅ Légende copiée';
+        showToast('Légende copiée !');
+        setTimeout(function () {
+          btn.classList.remove('copied');
+          btn.textContent = '📋 Copier la légende';
+        }, 2500);
+      }).catch(function () {
+        showToast('Impossible de copier, sélectionne le texte à la main.');
+      });
+    });
+  });
+
+  // Share API natif (mobile iOS et Android modernes)
+  document.querySelectorAll('[data-share]').forEach(function (btn) {
+    if (!navigator.share) {
+      btn.style.display = 'none';
+      return;
+    }
+    btn.addEventListener('click', async function () {
+      const capId = btn.getAttribute('data-cap');
+      const imgUrl = btn.getAttribute('data-img');
+      const capEl = document.getElementById(capId);
+      const text = capEl ? (capEl.textContent || capEl.innerText) : '';
+      try {
+        if (navigator.canShare) {
+          const resp = await fetch(imgUrl);
+          const blob = await resp.blob();
+          const file = new File([blob], 'propre-ou-rien-auto.jpg', { type: blob.type });
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file], text: text });
+            return;
+          }
+        }
+        await navigator.share({ text: text, url: window.location.href });
+      } catch (e) {
+        showToast('Partage annulé ou non supporté.');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
