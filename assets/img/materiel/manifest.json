@@ -1,0 +1,76 @@
+{
+  "batch": "PORA_MATERIEL_2026_05_18",
+  "generated_at": "2026-05-18",
+  "files": [
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-branded.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-branded.webp",
+      "size_jpg_kb": 127.3,
+      "size_webp_kb": 64.0,
+      "src": "materiel-branded-hero.jpg",
+      "stem": "site-materiel-branded"
+    },
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-flatlay.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-flatlay.webp",
+      "size_jpg_kb": 129.0,
+      "size_webp_kb": 58.7,
+      "src": "materiel-flatlay-knolling.jpg",
+      "stem": "site-materiel-flatlay"
+    },
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-pack.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-pack.webp",
+      "size_jpg_kb": 118.1,
+      "size_webp_kb": 53.0,
+      "src": "materiel-hero-pack.jpg",
+      "stem": "site-materiel-pack"
+    },
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-navy.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-navy.webp",
+      "size_jpg_kb": 128.4,
+      "size_webp_kb": 64.4,
+      "src": "materiel-hero-navy.jpg",
+      "stem": "site-materiel-navy"
+    },
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-naturel.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-naturel.webp",
+      "size_jpg_kb": 163.5,
+      "size_webp_kb": 74.5,
+      "src": "materiel-naturel-closeup.jpg",
+      "stem": "site-materiel-naturel"
+    },
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-lifestyle.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-lifestyle.webp",
+      "size_jpg_kb": 247.8,
+      "size_webp_kb": 142.9,
+      "src": "materiel-lifestyle-hands.jpg",
+      "stem": "site-materiel-lifestyle"
+    },
+    {
+      "desktop_jpg": "assets\\img\\materiel\\site-materiel-terrain.jpg",
+      "desktop_webp": "assets\\img\\materiel\\site-materiel-terrain.webp",
+      "size_jpg_kb": 195.3,
+      "size_webp_kb": 94.3,
+      "src": "materiel-naturel-terrain.jpg",
+      "stem": "site-materiel-terrain"
+    },
+    {
+      "desktop_jpg": "assets\\img\\stories\\story-34.jpg",
+      "desktop_webp": "assets\\img\\stories\\story-34.webp",
+      "size_jpg_kb": 103.8,
+      "size_webp_kb": 46.9,
+      "src": "story-materiel-flat-vertical.jpg"
+    },
+    {
+      "desktop_jpg": "assets\\img\\stories\\story-35.jpg",
+      "desktop_webp": "assets\\img\\stories\\story-35.webp",
+      "size_jpg_kb": 132.8,
+      "size_webp_kb": 57.6,
+      "src": "materiel-hero-navy.jpg (forced 9:16)"
+    }
+  ]
+}

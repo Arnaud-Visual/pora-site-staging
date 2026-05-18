@@ -262,5 +262,21 @@
     "label": "Duo together candid",
     "usage": "Story authentique",
     "size_kb": 809.0
+  },
+  {
+    "idx": 34,
+    "thumb": "assets/img/stories/story-34.jpg",
+    "original_path": "02_retouche_nano_banana/Car_detailing_equipment_studio_shot_v3",
+    "label": "Matos studio flat, fond blanc, tout le kit aligné",
+    "usage": "Story TIER 5 matos, story Insta autorité",
+    "size_kb": 103.8
+  },
+  {
+    "idx": 35,
+    "thumb": "assets/img/stories/story-35.jpg",
+    "original_path": "02_retouche_nano_banana/Car_detailing_equipment_navy_crop_9_16",
+    "label": "Matos studio navy, fond PORA blue, dramatic",
+    "usage": "Story TIER 5 matos brand, GBP cover, Reels cover",
+    "size_kb": 132.8
   }
 ]
