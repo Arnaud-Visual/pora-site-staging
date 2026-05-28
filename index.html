@@ -33,67 +33,291 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AutomotiveBusiness",
+    "@type": ["AutoBodyShop", "LocalBusiness"],
     "@id": "https://propreourienauto.fr/#business",
     "name": "Propre ou Rien Auto",
-    "alternateName": "PORA",
-    "description": "Nettoyage automobile intérieur à domicile à Cournonsec, Montpellier, Sète et dans tout l'Hérault. Service mobile : on vient chez le client.",
+    "legalName": "Nathan Bros EI",
+    "alternateName": ["PORA", "Propre ou Rien", "PORA Cournonsec"],
+    "slogan": "Le nettoyage auto qui vient à toi.",
+    "description": "Service mobile de nettoyage automobile intérieur à domicile à Cournonsec, Montpellier et dans tout l'Hérault. Devis WhatsApp en 1h, prix transparents : Intérieur essentiel 60€, Intérieur + sièges 85€, Remise à niveau dès 110€. On vient chez vous avec aspirateur pro, shampouineuse extraction, microfibres et produits dédiés.",
     "url": "https://propreourienauto.fr",
-    "image": "https://propreourienauto.fr/assets/img/hero-01-interieur.jpg",
+    "image": [
+      "https://propreourienauto.fr/assets/img/hero-01-interieur.jpg",
+      "https://propreourienauto.fr/assets/img/materiel/site-materiel-branded.jpg",
+      "https://propreourienauto.fr/assets/img/materiel/site-materiel-flatlay.jpg"
+    ],
     "logo": "https://propreourienauto.fr/assets/logo/logo-light.png",
     "telephone": "+33761109750",
     "email": "contact@propreourienauto.fr",
+    "priceRange": "60€-150€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+    "vatID": "FR-non-assujetti-art-293B-CGI",
+    "taxID": "10434467600010",
     "founder": [
-      {
-        "@type": "Person",
-        "name": "Nathan Bros",
-        "jobTitle": "Gérant, contact unique"
-      },
-      {
-        "@type": "Person",
-        "name": "Florian Vasta",
-        "jobTitle": "Co-fondateur, terrain"
-      }
+      { "@type": "Person", "name": "Nathan Bros", "jobTitle": "Gérant, contact unique" },
+      { "@type": "Person", "name": "Florian Vasta", "jobTitle": "Co-fondateur, binôme terrain" }
     ],
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Cournonsec",
       "addressLocality": "Cournonsec",
       "postalCode": "34660",
       "addressRegion": "Hérault",
       "addressCountry": "FR"
     },
     "geo": { "@type": "GeoCoordinates", "latitude": 43.5633, "longitude": 3.7353 },
+    "hasMap": "https://www.google.com/maps/place/Cournonsec",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 43.5633, "longitude": 3.7353 },
+      "geoRadius": "30000"
+    },
     "areaServed": [
-      { "@type": "City", "name": "Cournonsec" },
-      { "@type": "City", "name": "Montpellier" },
-      { "@type": "City", "name": "Fabrègues" },
-      { "@type": "City", "name": "Pignan" },
-      { "@type": "City", "name": "Cournonterral" },
-      { "@type": "City", "name": "Lavérune" },
-      { "@type": "City", "name": "Saint-Jean-de-Védas" },
+      { "@type": "City", "name": "Cournonsec", "sameAs": "https://fr.wikipedia.org/wiki/Cournonsec" },
+      { "@type": "City", "name": "Montpellier", "sameAs": "https://fr.wikipedia.org/wiki/Montpellier" },
+      { "@type": "City", "name": "Saint-Jean-de-Védas", "sameAs": "https://fr.wikipedia.org/wiki/Saint-Jean-de-V%C3%A9das" },
+      { "@type": "City", "name": "Lavérune", "sameAs": "https://fr.wikipedia.org/wiki/Lav%C3%A9rune" },
+      { "@type": "City", "name": "Pignan", "sameAs": "https://fr.wikipedia.org/wiki/Pignan" },
+      { "@type": "City", "name": "Cournonterral", "sameAs": "https://fr.wikipedia.org/wiki/Cournonterral" },
+      { "@type": "City", "name": "Fabrègues", "sameAs": "https://fr.wikipedia.org/wiki/Fabr%C3%A8gues" },
+      { "@type": "City", "name": "Vic-la-Gardiole" },
+      { "@type": "City", "name": "Villeneuve-lès-Maguelone" },
       { "@type": "City", "name": "Lattes" },
       { "@type": "City", "name": "Pérols" },
       { "@type": "City", "name": "Palavas-les-Flots" },
-      { "@type": "City", "name": "Villeneuve-lès-Maguelone" },
       { "@type": "City", "name": "Sète" },
       { "@type": "City", "name": "Frontignan" },
       { "@type": "City", "name": "Mèze" },
-      { "@type": "AdministrativeArea", "name": "Hérault" }
+      { "@type": "AdministrativeArea", "name": "Hérault", "sameAs": "https://fr.wikipedia.org/wiki/H%C3%A9rault_(d%C3%A9partement)" },
+      { "@type": "AdministrativeArea", "name": "Occitanie" }
     ],
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "09:00", "closes": "18:00" }
     ],
-    "priceRange": "€€",
+    "knowsAbout": [
+      "Nettoyage automobile intérieur",
+      "Shampouinage sièges voiture",
+      "Extraction moquette",
+      "Détailing intérieur",
+      "Désodorisation habitacle",
+      "Pressing auto",
+      "Nettoyage poils animaux voiture"
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Formules de nettoyage automobile intérieur",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intérieur essentiel", "description": "Aspirateur complet, plastiques, tapis de sol aspirés et traités, tableau de bord, vitres intérieures, coffre si vidé. Sans nettoyage des sièges." }, "price": "60", "priceCurrency": "EUR" },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intérieur + sièges", "description": "Intérieur complet avec shampouinage des sièges en tissu (extraction des taches, miettes, poils)." }, "price": "85", "priceCurrency": "EUR" },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Remise à niveau", "description": "Intérieur complet avec sièges, plus gros rattrapage : extraction moquette profonde, détachage, coffre complet. Pour véhicule très sale ou très encrassé." }, "priceRange": "110-120", "priceCurrency": "EUR" }
+        {
+          "@type": "Offer",
+          "@id": "https://propreourienauto.fr/#offer-essentiel",
+          "name": "Intérieur essentiel",
+          "price": "60",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "areaServed": { "@type": "AdministrativeArea", "name": "Hérault" },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nettoyage intérieur essentiel auto à domicile",
+            "description": "Aspirateur complet, plastiques et tableau de bord nettoyés, tapis de sol aspirés et traités, vitres intérieures, coffre si vidé. Sans nettoyage des sièges.",
+            "serviceType": "Nettoyage automobile",
+            "provider": { "@id": "https://propreourienauto.fr/#business" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://propreourienauto.fr/#offer-sieges",
+          "name": "Intérieur + sièges",
+          "price": "85",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "areaServed": { "@type": "AdministrativeArea", "name": "Hérault" },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nettoyage intérieur complet avec shampouinage des sièges",
+            "description": "Intérieur complet avec shampouinage des sièges en tissu : extraction des taches, miettes, poils, désodorisation légère.",
+            "serviceType": "Detailing intérieur",
+            "provider": { "@id": "https://propreourienauto.fr/#business" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "@id": "https://propreourienauto.fr/#offer-remise",
+          "name": "Remise à niveau",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "110",
+            "maxPrice": "150",
+            "priceCurrency": "EUR"
+          },
+          "availability": "https://schema.org/InStock",
+          "areaServed": { "@type": "AdministrativeArea", "name": "Hérault" },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Remise à niveau intérieur véhicule très sale",
+            "description": "Intérieur complet avec sièges plus gros rattrapage : extraction moquette profonde, détachage zone par zone, coffre complet. Pour véhicule très sale (enfants, animaux, chantier, revente).",
+            "serviceType": "Detailing intérieur intensif",
+            "provider": { "@id": "https://propreourienauto.fr/#business" }
+          }
+        }
       ]
-    }
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Offre 3 véhicules même adresse",
+        "description": "Remise 20€ pour 3 véhicules nettoyés à la même adresse le même jour",
+        "priceSpecification": { "@type": "PriceSpecification", "price": "-20", "priceCurrency": "EUR" }
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/propreourienauto/",
+      "https://www.tiktok.com/@propreourienauto34"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien coûte un nettoyage auto à domicile à Montpellier ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Propre ou Rien Auto propose 3 formules à domicile à Montpellier et Cournonsec : Intérieur essentiel 60€ (sans sièges), Intérieur + sièges 85€ (la plus demandée, avec shampouinage), Remise à niveau dès 110€ (véhicule très sale). Prix final confirmé après 3 photos envoyées par WhatsApp au 07 61 10 97 50. Pas de surprise le jour J."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps prend un nettoyage intérieur complet ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un nettoyage intérieur essentiel dure environ 45 minutes à 1h30, un Intérieur + sièges 1h30 à 2h30, une Remise à niveau 3 à 4h. Prévoir une demi-matinée ou demi-après-midi selon l'état réel du véhicule. Le binôme Nathan + Florian travaille sur place chez vous, à votre domicile ou au bureau."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel est le tarif le moins cher pour un détailing intérieur dans l'Hérault ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La formule la moins chère chez Propre ou Rien Auto est l'Intérieur essentiel à 60€ TTC, incluant aspirateur complet, plastiques, tableau de bord, tapis traités, vitres intérieures et coffre si vidé. Service à domicile inclus dans le secteur Cournonsec / Montpellier ouest sans supplément kilométrique."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelles zones autour de Cournonsec couvrez-vous gratuitement ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le déplacement est inclus dans tout le secteur Cournonsec / Montpellier ouest et bassin de Thau : Cournonsec, Cournonterral, Pignan, Fabrègues, Lavérune, Saint-Jean-de-Védas, Villeneuve-lès-Maguelone, Vic-la-Gardiole, Lattes, Pérols, Palavas-les-Flots, Montpellier, Sète, Frontignan, Mèze. Au-delà, devis selon distance, limite réaliste 1h de route depuis Cournonsec 34660."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il une prise électrique pour le nettoyage auto à domicile ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, c'est la seule contrainte côté client. Il faut une prise électrique standard 220V accessible là où la voiture est garée (pour brancher l'aspirateur professionnel et la shampouineuse à extraction), ainsi qu'un point d'eau à proximité. Pas besoin de garage : Propre ou Rien Auto travaille à l'air libre sur votre parking, allée ou place de stationnement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faites-vous le lavage extérieur ou seulement l'intérieur ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Propre ou Rien Auto se concentre uniquement sur l'intérieur pour le faire vraiment bien : aspiration, plastiques, sièges en tissu, moquettes, vitres intérieures, coffre. L'extérieur (lavage carrosserie, jantes, polish, céramique) arrivera dans 3 à 6 mois avec l'équipement complet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment obtenir un devis nettoyage voiture à Montpellier ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Envoyez 3 photos par WhatsApp au 07 61 10 97 50 : vue générale intérieur, banquette arrière, coffre. Nathan répond avec un prix ferme en moins d'1 heure. Pas de formulaire interminable, pas de devis sur place. Vous savez exactement ce que vous payez avant la prestation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment enlever les poils d'animaux dans une voiture ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Propre ou Rien Auto utilise des brosses spéciales rotatives (drill brush) qui arrachent les poils incrustés dans les sièges en tissu et les moquettes, suivies d'une extraction par shampouinage professionnel. Supplément poils d'animaux : +10 à 15€. Conseillé pour véhicules avec chien ou chat régulier."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels moyens de paiement acceptez-vous ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Propre ou Rien Auto accepte espèces, carte bancaire (terminal mobile sur place), virement bancaire. Facture fournie sur demande, obligatoire pour les professionnels (SIREN 104 344 676, SIRET 104 344 676 00010, micro-entreprise non assujettie TVA art. 293 B CGI)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Peut-on regrouper plusieurs voitures pour réduire le prix ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui : offre de lancement 3 véhicules même adresse le même jour = -20€ sur le total. Idéal pour familles, collègues sur parking entreprise, petites PME avec flotte. Au-delà de 5 véhicules en récurrent : devis pro adapté."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Comment se passe un nettoyage auto à domicile avec Propre ou Rien Auto",
+    "description": "Processus en 5 étapes du devis à la livraison du véhicule propre, service mobile Hérault.",
+    "totalTime": "PT4H",
+    "estimatedCost": { "@type": "MonetaryAmount", "currency": "EUR", "value": "60-150" },
+    "tool": [
+      { "@type": "HowToTool", "name": "Aspirateur professionnel haute dépression" },
+      { "@type": "HowToTool", "name": "Shampouineuse à extraction professionnelle" },
+      { "@type": "HowToTool", "name": "Microfibres triées par usage" },
+      { "@type": "HowToTool", "name": "Drill brush et brosses détaillage" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Envoi de 3 photos par WhatsApp",
+        "text": "Le client envoie 3 photos via WhatsApp au 07 61 10 97 50 : vue générale intérieur, banquette arrière, coffre. Durée : 2 minutes.",
+        "totalTime": "PT2M"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Réception du devis en 1h",
+        "text": "Nathan analyse les photos et envoie un prix ferme en moins d'une heure. Pas de surprise le jour J. Le client valide ou non.",
+        "totalTime": "PT1H"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Prise de RDV et déplacement à domicile",
+        "text": "Nathan et Florian se déplacent chez le client (domicile, bureau, parking). Aucun local nécessaire. Le client fournit juste une prise électrique et un point d'eau.",
+        "totalTime": "PT30M"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Nettoyage intérieur professionnel",
+        "text": "Aspiration complète, plastiques nettoyés, vitres intérieures, shampouinage des sièges en tissu si formule choisie, extraction moquette, coffre. Durée 1h à 4h selon formule.",
+        "totalTime": "PT2H30M"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Contrôle qualité et paiement",
+        "text": "Nathan montre le résultat au client avant de partir. Tout détail à reprendre est traité sur place. Paiement en espèces, CB mobile ou virement. Facture sur demande.",
+        "totalTime": "PT15M"
+      }
+    ]
   }
   </script>
 </head>
