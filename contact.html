@@ -132,7 +132,12 @@
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value="https://propreourienauto.fr/contact.html#merci" />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_autoresponse" value="Merci pour ta demande ! Nathan te recontacte dans la journée (Lun-Sam 9h-19h). Pour un retour plus rapide, envoie 3 photos WhatsApp au 07 61 10 97 50." />
+          <!-- Anti-spam (24/11/2026) : _honey = piège FormSubmit (rempli = jeté par FormSubmit, même pour un robot qui poste en direct).
+               _autoresponse retiré : les robots mettent l'adresse d'un inconnu et FormSubmit lui écrivait en notre nom. -->
+          <div class="hp-field" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;">
+            <label for="_honey">Ne pas remplir</label>
+            <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="form-row">
             <div>
               <label for="nom">Prénom / Nom *</label>
@@ -185,12 +190,28 @@
         (function() {
           var form = document.getElementById('contact-form');
           if (!form) return;
+          var t0 = Date.now();
+          var LINK_RE = /(https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|online|xyz|top|ru|id|io|site|info|biz)\b)/i;
           form.addEventListener('submit', function(e) {
-            // NE PAS appeler e.preventDefault() — le form soumet nativement vers l'iframe caché.
-            // FormSubmit reçoit un vrai POST HTML → email d'activation envoyé dès le 1er submit.
+            // Le form soumet nativement vers l'iframe caché (pas de preventDefault), SAUF robot détecté.
             var fd = new FormData(form);
             var btn = form.querySelector('button[type="submit"]');
             var success = document.querySelector('.form-success');
+
+            // Anti-spam : piège rempli ou envoi en moins de 3 s = robot -> faux succès, rien ne part.
+            if ((fd.get('_honey') || '') !== '' || Date.now() - t0 < 3000) {
+              e.preventDefault();
+              form.style.display = 'none';
+              if (success) success.classList.add('show');
+              return;
+            }
+            // Un lien dans le nom ou le message : on demande de le retirer (les vrais clients n'en mettent pas).
+            var texte = ((fd.get('nom') || '') + ' ' + (fd.get('message') || '')).replace(/\S+@\S+/g, ' ');
+            if (LINK_RE.test(texte)) {
+              e.preventDefault();
+              alert('Merci de retirer les liens de ton message, puis renvoie.');
+              return;
+            }
 
             if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
 
